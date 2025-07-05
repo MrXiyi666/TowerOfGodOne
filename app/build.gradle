@@ -5,7 +5,17 @@ plugins {
 android {
     namespace 'fun.android.towerofgodone'
     compileSdk 36
-
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layout/activity',
+                    'src/main/res/layout/scene',
+                    'src/main/res/layout/window',
+                    'src/main/res/layout',
+                    'src/main/res'
+            ]
+        }
+    }
     defaultConfig {
         applicationId "fun.android.towerofgodone"
         minSdk 26
@@ -23,8 +33,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
