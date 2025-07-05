@@ -1,4 +1,4 @@
-package fun.android.towerofgod_one;
+package fun.android.towerofgodone;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("fun.android.towerofgod_one", appContext.getPackageName());
+        assertEquals("fun.android.towerofgodone", appContext.getPackageName());
     }
 }

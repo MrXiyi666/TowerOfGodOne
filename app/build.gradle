@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'fun.android.towerofgod_one'
+    namespace 'fun.android.towerofgodone'
     compileSdk 36
 
     defaultConfig {
-        applicationId "fun.android.towerofgod_one"
+        applicationId "fun.android.towerofgodone"
         minSdk 26
         targetSdk 36
         versionCode 1

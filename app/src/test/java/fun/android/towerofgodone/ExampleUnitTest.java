@@ -1,4 +1,4 @@
-package fun.android.towerofgod_one;
+package fun.android.towerofgodone;
 
 import org.junit.Test;
 
