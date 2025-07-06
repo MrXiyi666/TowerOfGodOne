@@ -1,13 +1,7 @@
 package fun.android.towerofgodone;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.RelativeLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.Scene.Scene_Title;
@@ -18,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fun.main_back = findViewById(R.id.main_back);
         fun.main_layout = findViewById(R.id.main);
         fun.main_layout.post(() -> {
             int currentHeight = fun.main_layout.getHeight();

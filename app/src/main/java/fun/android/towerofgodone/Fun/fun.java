@@ -1,16 +1,20 @@
 package fun.android.towerofgodone.Fun;
 
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.view.WindowInsets;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.RelativeLayout;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Random;
+import fun.android.towerofgodone.Data.Enemy_Object;
 import fun.android.towerofgodone.Scene.Scene_Base;
 
 public class fun {
-    public static RelativeLayout main_layout;
+    public static RelativeLayout main_back, main_layout;
     public static Scene_Base scene;
+    public static Enemy_Object enemy_object;
+    public static int Map_Index = 0;
 
     public static int getStatusBarHeight(Context context) {
         int result = 0;
@@ -19,5 +23,25 @@ public class fun {
             result = context.getResources().getDimensionPixelSize(resourceId);
         }
         return result;
+    }
+
+    public static Bitmap loadBitmapFromAssets(Context context, String fileName) {
+        Bitmap bitmap = null;
+        try {
+            // 获取AssetManager
+            InputStream inputStream = context.getAssets().open(fileName);
+            // 使用BitmapFactory解码为Bitmap
+            bitmap = BitmapFactory.decodeStream(inputStream);
+            // 关闭输入流
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+    public static int Random( int max){
+        Random random = new Random();
+        return random.nextInt(max+1);
     }
 }
