@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 点击状态 -->
+    <item android:state_pressed="true" android:color="#000000" /> <!-- 黑色 -->
+    <!-- 默认状态 -->
+    <item android:color="#FFFFFF" /> <!-- 白色 -->
+</selector>

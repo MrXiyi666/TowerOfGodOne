@@ -10,5 +10,7 @@ public class SheGuai extends Enemy_Object {
         this.Critical = 12;
         this.Speed = 110;
         this.img_path = "map_1/sheguai.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

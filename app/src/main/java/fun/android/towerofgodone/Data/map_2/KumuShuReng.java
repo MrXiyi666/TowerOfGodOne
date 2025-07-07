@@ -10,5 +10,7 @@ public class KumuShuReng extends Enemy_Object {
         this.Critical = 4;
         this.Speed = 70;
         this.img_path = "map_2/kumushuren.png";
+        this.Value=50;
+        this.Gold=50;
     }
 }

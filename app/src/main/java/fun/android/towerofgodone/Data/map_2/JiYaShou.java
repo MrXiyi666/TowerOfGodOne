@@ -10,5 +10,7 @@ public class JiYaShou extends Enemy_Object {
         this.Critical = 12;
         this.Speed = 90;
         this.img_path = "map_2/jiyashou.png";
+        this.Value=50;
+        this.Gold=50;
     }
 }

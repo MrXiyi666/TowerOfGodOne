@@ -40,6 +40,11 @@ public class Scene_Map extends Scene_Base{
         view.findViewById(R.id.img_4).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/feilonggu.png")
         ));
+
+        view.findViewById(R.id.button_status).setOnClickListener(V->{
+            fun.scene = new Scene_Status(context);
+            fun.scene.enable_scene();
+        });
     }
 
     @Override

@@ -10,5 +10,7 @@ public class Yelang extends Enemy_Object {
         this.Critical = 10;
         this.Speed = 100;
         this.img_path = "map_1/yelang.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

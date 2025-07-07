@@ -10,5 +10,7 @@ public class CiQiuGuai extends Enemy_Object {
         this.Critical = 5;
         this.Speed = 90;
         this.img_path = "map_1/ciqiuguai.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

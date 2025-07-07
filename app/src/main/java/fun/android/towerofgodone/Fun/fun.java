@@ -39,7 +39,17 @@ public class fun {
         }
         return bitmap;
     }
-
+    public static int toInt(Object value) {
+        if (value instanceof Integer) {
+            return (int) value;
+        } else if (value instanceof Double) {
+            return ((Double) value).intValue();
+        } else if (value instanceof Float) {
+            return ((Float) value).intValue();
+        }else{
+            return 0;
+        }
+    }
     public static int Random( int max){
         Random random = new Random();
         return random.nextInt(max+1);

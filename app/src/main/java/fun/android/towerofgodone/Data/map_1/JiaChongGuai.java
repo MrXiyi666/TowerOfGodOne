@@ -10,5 +10,7 @@ public class JiaChongGuai extends Enemy_Object {
         this.Critical = 7;
         this.Speed = 85;
         this.img_path = "map_1/jiachongguai.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

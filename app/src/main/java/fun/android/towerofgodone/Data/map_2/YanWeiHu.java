@@ -10,5 +10,7 @@ public class YanWeiHu extends Enemy_Object {
         this.Critical = 12;
         this.Speed = 120;
         this.img_path = "map_2/yanweihu.png";
+        this.Value=50;
+        this.Gold=50;
     }
 }

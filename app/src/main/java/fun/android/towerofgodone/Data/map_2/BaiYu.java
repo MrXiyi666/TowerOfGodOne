@@ -10,5 +10,7 @@ public class BaiYu extends Enemy_Object {
         this.Critical = 12;
         this.Speed = 110;
         this.img_path = "map_2/baiyu.png";
+        this.Value=50;
+        this.Gold=50;
     }
 }

@@ -7,5 +7,6 @@ public class Enemy_Object {
     public  int Critical;
     public  int Speed;
     public  String img_path;
-
+    public int Value;
+    public int Gold;
 }

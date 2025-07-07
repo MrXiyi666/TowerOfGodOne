@@ -10,5 +10,7 @@ public class SantouXuemoNiu extends Enemy_Object {
         this.Critical = 12;
         this.Speed = 75;
         this.img_path = "map_2/santouxuemoniu.png";
+        this.Value=50;
+        this.Gold=50;
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,14 +18,15 @@ import android.widget.TextView;
 import androidx.appcompat.widget.AppCompatButton;
 
 import fun.android.towerofgodone.Data.Actor_Object;
+import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
 
 public class Scene_War extends Scene_Base{
     private ImageView enemy_img, enemy_attack_img, actor_img, actor_attack_img, logo_img;
-    private RelativeLayout settled_layout;
+    private LinearLayout settled_layout;
     private AppCompatButton button_cancel;
-    private TextView settled_text, actor_xhp, enemy_xhp;
+    private TextView settled_text, actor_xhp, enemy_xhp, hasten_text;
     private Bitmap  attack_img_0, attack_img_1, attack_img_2;
     private int 回合 = 0;
     private Handler handler;
@@ -35,6 +37,7 @@ public class Scene_War extends Scene_Base{
     private int 胜负=0;
     private Bitmap back=null;
     private String 是否暴击 = "触发暴击";
+    private int handler_time = 1000;
     public Scene_War(Context context) {
         super(context);
 
@@ -70,6 +73,7 @@ public class Scene_War extends Scene_Base{
         settled_text = view.findViewById(R.id.settled_text);
         button_cancel = view.findViewById(R.id.button_cancel);
         logo_img = view.findViewById(R.id.logo_img);
+        hasten_text = view.findViewById(R.id.hasten_text);
 
         enemy_hp_text = fun.enemy_object.HP;
         actor_hp_text = Actor_Object.HP;
@@ -148,7 +152,7 @@ public class Scene_War extends Scene_Base{
                         enemy_xhp.setVisibility(View.INVISIBLE);
                         actor_xhp.setVisibility(View.INVISIBLE);
                         settled_layout.setVisibility(TextView.VISIBLE);
-                        settled_text.setText("胜利啦");
+                        settled_text.setText("能量：" + fun.enemy_object.Value + "\n金币：" + fun.enemy_object.Gold);
                         break;
                     case 2:
                         logo_img.setImageBitmap(fun.loadBitmapFromAssets(context, "war/war_false.png"));
@@ -157,10 +161,10 @@ public class Scene_War extends Scene_Base{
                         enemy_xhp.setVisibility(View.INVISIBLE);
                         actor_xhp.setVisibility(View.INVISIBLE);
                         settled_layout.setVisibility(TextView.VISIBLE);
-                        settled_text.setText("失败了");
+                        settled_text.setText("");
                         break;
                 }
-                handler.postDelayed(this, 1000);
+                handler.postDelayed(this, handler_time);
             }
         };
 
@@ -182,7 +186,39 @@ public class Scene_War extends Scene_Base{
                     fun.scene.enable_scene();
                     break;
             }
+            Actor_Object.Value = Actor_Object.Value + fun.enemy_object.Value;
+            Actor_Object.Gold = Actor_Object.Gold + fun.enemy_object.Gold;
+            Fun_File.Save(context);
 
+        });
+
+        // 设置触摸监听器
+        view.setOnTouchListener((v, event) -> {
+            // 获取触摸事件的类型
+            int action = event.getActionMasked();
+
+            switch (action) {
+                case MotionEvent.ACTION_DOWN:
+                    // 按下事件
+                    Log.w("事件", "加速 成功");
+                    handler_time = 300;
+                    hasten_text.setVisibility(View.VISIBLE);
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    break;
+                case MotionEvent.ACTION_UP:
+                    Log.w("事件", "还原 成功");
+                    hasten_text.setVisibility(View.INVISIBLE);
+                    handler_time = 1000;
+                    break;
+                case MotionEvent.ACTION_CANCEL:
+                    Log.w("事件", "还原 成功");
+                    hasten_text.setVisibility(View.INVISIBLE);
+                    handler_time = 1000;
+                    break;
+            }
+            return true;
         });
     }
 

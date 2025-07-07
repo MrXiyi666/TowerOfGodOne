@@ -11,5 +11,7 @@ public class Feibian extends Enemy_Object {
         this.Critical = 2;
         this.Speed = 400;
         this.img_path = "map_1/feibian.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

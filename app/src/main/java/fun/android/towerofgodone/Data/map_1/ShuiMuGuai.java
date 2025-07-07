@@ -11,5 +11,7 @@ public class ShuiMuGuai extends Enemy_Object {
         this.Critical = 10;
         this.Speed = 70;
         this.img_path = "map_1/shuimuguai.png";
+        this.Value=10;
+        this.Gold=10;
     }
 }

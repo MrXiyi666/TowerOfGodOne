@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
+import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
 
@@ -18,6 +19,14 @@ public class Scene_Title extends Scene_Base {
             fun.scene = new Scene_Map(context);
             fun.scene.enable_scene();
         });
+
+        Create_Game(context);
+    }
+
+    public void Create_Game(Context context){
+        if(!Fun_File.Read(context)){
+            Fun_File.Save(context);
+        }
     }
     @Override
     public void Release() {

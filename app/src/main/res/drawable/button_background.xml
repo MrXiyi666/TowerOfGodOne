@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 点击状态 -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#80FFFFFF" /> <!-- 半透明白色 -->
+            <corners android:radius="16dp" /> <!-- 圆角半径 -->
+        </shape>
+    </item>
+    <!-- 默认状态 -->
+    <item>
+        <shape>
+            <solid android:color="#80000000" /> <!-- 半透明黑色 -->
+            <corners android:radius="16dp" /> <!-- 圆角半径 -->
+        </shape>
+    </item>
+</selector>
