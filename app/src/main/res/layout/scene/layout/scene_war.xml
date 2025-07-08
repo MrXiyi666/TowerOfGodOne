@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fun.android.towerofgodone.View.StrokeTextView
+    <fun.android.towerofgodone.View.Blood_View
         android:background="#80000000"
         android:padding="10dp"
         android:id="@+id/enemy_hp"
@@ -80,7 +80,7 @@
         android:textColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <fun.android.towerofgodone.View.StrokeTextView
+    <fun.android.towerofgodone.View.Blood_View
         android:textSize="20sp"
         android:background="#80000000"
         android:padding="10dp"

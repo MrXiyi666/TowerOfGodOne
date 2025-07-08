@@ -5,11 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-
 import androidx.appcompat.widget.AppCompatTextView;
 
 public class StrokeTextView extends AppCompatTextView {
-    private Paint strokePaint;
 
     public StrokeTextView(Context context) {
         super(context);

@@ -15,10 +15,9 @@ import fun.android.towerofgodone.R;
 import fun.android.towerofgodone.Window.Window_Boundary;
 
 public class Scene_Status extends Scene_Base{
-    private Bitmap back;
     public Scene_Status(Context context) {
         super(context);
-        back = fun.loadBitmapFromAssets(context, "status/back_" + fun.Random(7) + ".png");
+        Bitmap back = fun.loadBitmapFromAssets(context, "status/back_" + fun.Random(7) + ".png");
         fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
         view = LayoutInflater.from(context).inflate(R.layout.scene_status, null);
         ImageView actor_avatar_img = view.findViewById(R.id.actor_avatar_img);
@@ -27,6 +26,15 @@ public class Scene_Status extends Scene_Base{
             fun.scene = new Scene_Map(context);
             fun.scene.enable_scene();
         });
+        refresh();
+        AppCompatButton button_up_boundary = view.findViewById(R.id.button_up_boundary);
+        button_up_boundary.setOnClickListener(V->{
+            new Window_Boundary(context, Scene_Status.this);
+        });
+
+    }
+
+    public void refresh(){
         TextView bounday = view.findViewById(R.id.boundary);
         bounday.setText(Actor_Object.Boundary + "");
         TextView value = view.findViewById(R.id.value);
@@ -46,14 +54,7 @@ public class Scene_Status extends Scene_Base{
         actor_arms_text.setText(Actor_Object.Arms + "");
         TextView actor_dress_text = view.findViewById(R.id.actor_dress_text);
         actor_dress_text.setText(Actor_Object.Dress + "");
-
-        AppCompatButton button_up_boundary = view.findViewById(R.id.button_up_boundary);
-        button_up_boundary.setOnClickListener(V->{
-            new Window_Boundary(context);
-        });
-
     }
-
     @Override
     public void Release() {
         super.Release();

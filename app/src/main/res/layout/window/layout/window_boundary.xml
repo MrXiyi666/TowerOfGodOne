@@ -64,6 +64,7 @@
                     android:layout_weight="1"
                     android:layout_margin="10dp"
                     android:text="下一境界："
+                    android:id="@+id/up_boundary_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
                 <fun.android.towerofgodone.View.StrokeTextView
@@ -77,11 +78,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:textColor="@color/white"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:id="@+id/up_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
             <androidx.appcompat.widget.AppCompatButton
                 android:background="@drawable/button_background"
                 android:textColor="@color/button_text_color"
                 android:text="提升"
+                android:id="@+id/button_up_boundary"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

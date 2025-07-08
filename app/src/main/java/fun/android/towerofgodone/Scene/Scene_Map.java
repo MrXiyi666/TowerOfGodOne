@@ -23,10 +23,16 @@ public class Scene_Map extends Scene_Base{
             fun.scene.enable_scene();
         });
         view.findViewById(R.id.map_3).setOnClickListener(V->{
-
+            fun.scene = new Scene_Map_3(context);
+            fun.scene.enable_scene();
         });
         view.findViewById(R.id.map_4).setOnClickListener(V->{
-
+            fun.scene = new Scene_Map_4(context);
+            fun.scene.enable_scene();
+        });
+        view.findViewById(R.id.map_5).setOnClickListener(V->{
+            fun.scene = new Scene_Map_5(context);
+            fun.scene.enable_scene();
         });
         view.findViewById(R.id.img_1).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/mowusenling.png")
@@ -39,6 +45,10 @@ public class Scene_Map extends Scene_Base{
         ));
         view.findViewById(R.id.img_4).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/feilonggu.png")
+        ));
+
+        view.findViewById(R.id.img_5).setBackground(new BitmapDrawable(context.getResources(),
+                fun.loadBitmapFromAssets(context, "map/shiwandashan.png")
         ));
 
         view.findViewById(R.id.button_status).setOnClickListener(V->{

@@ -26,6 +26,7 @@ public class Scene_Map_1 extends Scene_Base{
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
             fun.scene = new Scene_Map(context);
             fun.scene.enable_scene();
+            fun.Map_Index = 0;
         });
         view.findViewById(R.id.enemy_1).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, new XiyiGuai().img_path)));

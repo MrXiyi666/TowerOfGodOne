@@ -21,12 +21,17 @@ import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
+import fun.android.towerofgodone.View.Blood_View;
 
 public class Scene_War extends Scene_Base{
     private ImageView enemy_img, enemy_attack_img, actor_img, actor_attack_img, logo_img;
     private LinearLayout settled_layout;
     private AppCompatButton button_cancel;
-    private TextView settled_text, actor_xhp, enemy_xhp, hasten_text;
+    private TextView settled_text, actor_xhp, hasten_text;
+    private TextView enemy_xhp;
+
+    private Blood_View enemy_hp, actor_hp;
+
     private Bitmap  attack_img_0, attack_img_1, attack_img_2;
     private int 回合 = 0;
     private Handler handler;
@@ -51,20 +56,29 @@ public class Scene_War extends Scene_Base{
             case 2:
                 back = fun.loadBitmapFromAssets(context, "map_2/back_" + fun.Random(2) + ".png");
                 break;
+            case 3:
+                back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
+                break;
+            case 4:
+                back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
+                break;
+            case 5:
+                back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
+                break;
         }
 
         fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
         view = LayoutInflater.from(context).inflate(R.layout.scene_war, null);
         enemy_img = view.findViewById(R.id.enemy_img);
         enemy_img.setImageBitmap(fun.loadBitmapFromAssets(context, fun.enemy_object.img_path));
-        TextView enemy_hp = view.findViewById(R.id.enemy_hp);
+        enemy_hp = view.findViewById(R.id.enemy_hp);
         enemy_hp.setText("生命值：" + fun.enemy_object.HP);
         enemy_attack_img = view.findViewById(R.id.enemy_attack_img);
         enemy_xhp = view.findViewById(R.id.enemy_xhp);
 
         actor_img = view.findViewById(R.id.actor_img);
         actor_img.setImageBitmap(fun.loadBitmapFromAssets(context, Actor_Object.img_path));
-        TextView actor_hp = view.findViewById(R.id.actor_hp);
+        actor_hp = view.findViewById(R.id.actor_hp);
         actor_hp.setText("生命值：" + Actor_Object.HP);
         actor_attack_img = view.findViewById(R.id.actor_attack_img);
         actor_xhp = view.findViewById(R.id.actor_xhp);
@@ -77,6 +91,10 @@ public class Scene_War extends Scene_Base{
 
         enemy_hp_text = fun.enemy_object.HP;
         actor_hp_text = Actor_Object.HP;
+        enemy_hp.currentValue = enemy_hp_text;
+        enemy_hp.maxValue = enemy_hp_text;
+        actor_hp.currentValue = Actor_Object.HP;
+        actor_hp.maxValue = Actor_Object.HP;
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -111,6 +129,8 @@ public class Scene_War extends Scene_Base{
                                     enemy_hp_text=0;
                                     胜负=1;
                                 }
+                                enemy_hp.currentValue = enemy_hp_text;
+                                enemy_hp.invalidate();
                                 enemy_xhp.setVisibility(View.VISIBLE);
                                 enemy_xhp.setText(是否暴击 + "     伤害值：" + 伤害值);
                                 enemy_attack_img.setImageBitmap(attack_img_0);
@@ -133,6 +153,8 @@ public class Scene_War extends Scene_Base{
                                     actor_hp_text=0;
                                     胜负=2;
                                 }
+                                actor_hp.currentValue = actor_hp_text;
+                                actor_hp.invalidate();
                                 actor_xhp.setVisibility(View.VISIBLE);
                                 actor_xhp.setText(是否暴击 + "     伤害值：" + 伤害值);
                                 actor_attack_img.setImageBitmap(attack_img_0);
@@ -161,7 +183,7 @@ public class Scene_War extends Scene_Base{
                         enemy_xhp.setVisibility(View.INVISIBLE);
                         actor_xhp.setVisibility(View.INVISIBLE);
                         settled_layout.setVisibility(TextView.VISIBLE);
-                        settled_text.setText("");
+                        settled_text.setText("提升自己的实力 再来挑战吧");
                         break;
                 }
                 handler.postDelayed(this, handler_time);
@@ -185,10 +207,24 @@ public class Scene_War extends Scene_Base{
                     fun.scene = new Scene_Map_2(context);
                     fun.scene.enable_scene();
                     break;
+                case 3:
+                    fun.scene = new Scene_Map_3(context);
+                    fun.scene.enable_scene();
+                    break;
+                case 4:
+                    fun.scene = new Scene_Map_4(context);
+                    fun.scene.enable_scene();
+                    break;
+                case 5:
+                    fun.scene = new Scene_Map_5(context);
+                    fun.scene.enable_scene();
+                    break;
             }
-            Actor_Object.Value = Actor_Object.Value + fun.enemy_object.Value;
-            Actor_Object.Gold = Actor_Object.Gold + fun.enemy_object.Gold;
-            Fun_File.Save(context);
+            if(胜负==1){
+                Actor_Object.Value = Actor_Object.Value + fun.enemy_object.Value;
+                Actor_Object.Gold = Actor_Object.Gold + fun.enemy_object.Gold;
+                Fun_File.Save(context);
+            }
 
         });
 

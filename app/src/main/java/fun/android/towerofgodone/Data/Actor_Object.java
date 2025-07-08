@@ -1,7 +1,7 @@
 package fun.android.towerofgodone.Data;
 
 public class Actor_Object {
-    public static String Boundary = "初阶";
+    public static String Boundary = "练气 一层";
     public static int HP = 800;      //生命值
     public static int Attack = 150;  //攻击力
     public static int Defense = 100; //防御力

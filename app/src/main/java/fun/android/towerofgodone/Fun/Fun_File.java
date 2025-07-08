@@ -66,7 +66,6 @@ public class Fun_File {
         actor.put("Arms", Actor_Object.Arms);
         actor.put("Dress", Actor_Object.Dress);
         actor.put("Boundary", Actor_Object.Boundary);
-        Gson gson = new Gson();
         return WriteString(getPath(context) + "save/actor_data.txt", new Gson().toJson(actor));
     }
 
