@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class BingJingLong extends Enemy_Object {
     public BingJingLong() {
-        this.HP = 4800; // 极高的生命值
-        this.Attack = 490; // 强大的攻击力
-        this.Defense = 380; // 高防御力
-        this.Critical = 24; // 较高的暴击率
-        this.Speed = 195; // 较快的速度
+        this.HP = 2500;
+        this.Attack = 220;
+        this.Defense = 30;
+        this.Critical = 20;
+        this.Speed = 29;
         this.img_path = "map_4/bingjinglong.png";
-        this.Value = 190; // 高经验值
-        this.Gold = 250; // 高掉落金钱数
+        this.Value = 800;
+        this.Gold = 250;
     }
 }

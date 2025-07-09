@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class XiyiGuai extends Enemy_Object {
     public XiyiGuai(){
-        this.HP = 650;
-        this.Attack = 120;
-        this.Defense = 95;
-        this.Critical = 6;
-        this.Speed = 85;
+        this.HP = 70;
+        this.Attack = 8;
+        this.Defense = 5;
+        this.Critical = 3;
+        this.Speed = 9;
         this.img_path = "map_1/xiyiguai.png";
-        this.Value=10;
-        this.Gold=10;
+        this.Value=6;
+        this.Gold=300;
     }
 }

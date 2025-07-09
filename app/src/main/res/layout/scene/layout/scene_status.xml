@@ -187,6 +187,7 @@
                 android:layout_weight="1"
                 android:maxLines="1"
                 android:text="防御力："
+                android:textSize="20sp"
                 android:id="@+id/actor_defense"
                 android:textColor="@color/black"
                 android:autoSizeTextType="uniform"

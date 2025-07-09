@@ -11,28 +11,22 @@ public class Scene_Map extends Scene_Base{
 
     public Scene_Map(Context context) {
         super(context);
-        Bitmap back = fun.loadBitmapFromAssets(context, "map/back_" + fun.Random(3) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+
         view = LayoutInflater.from(context).inflate(R.layout.scene_map, null);
         view.findViewById(R.id.map_1).setOnClickListener(V->{
-            fun.scene = new Scene_Map_1(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map_1(context));
         });
         view.findViewById(R.id.map_2).setOnClickListener(V->{
-            fun.scene = new Scene_Map_2(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map_2(context));
         });
         view.findViewById(R.id.map_3).setOnClickListener(V->{
-            fun.scene = new Scene_Map_3(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map_3(context));
         });
         view.findViewById(R.id.map_4).setOnClickListener(V->{
-            fun.scene = new Scene_Map_4(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map_4(context));
         });
         view.findViewById(R.id.map_5).setOnClickListener(V->{
-            fun.scene = new Scene_Map_5(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map_5(context));
         });
         view.findViewById(R.id.img_1).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/mowusenling.png")
@@ -52,9 +46,21 @@ public class Scene_Map extends Scene_Base{
         ));
 
         view.findViewById(R.id.button_status).setOnClickListener(V->{
-            fun.scene = new Scene_Status(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Status(context));
         });
+        view.findViewById(R.id.button_shop).setOnClickListener(V->{
+            fun.view_transition.start(new Scene_Shop(context));
+        });
+        view.findViewById(R.id.button_knapsack).setOnClickListener(V->{
+            fun.view_transition.start(new Scene_kNapSack(context));
+        });
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "map/back_" + fun.Random(3) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

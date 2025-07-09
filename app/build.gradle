@@ -10,6 +10,7 @@ android {
             res.srcDirs = [
                     'src/main/res/layout/activity',
                     'src/main/res/layout/scene',
+                    'src/main/res/layout/item',
                     'src/main/res/layout/window',
                     'src/main/res/layout',
                     'src/main/res'

@@ -10,4 +10,8 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <fun.android.towerofgodone.View.View_Transition
+        android:id="@+id/view_transition"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

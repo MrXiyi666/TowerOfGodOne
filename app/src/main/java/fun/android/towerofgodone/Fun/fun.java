@@ -1,5 +1,7 @@
 package fun.android.towerofgodone.Fun;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -12,21 +14,27 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.Boundary_Data;
 import fun.android.towerofgodone.Data.Enemy_Object;
+import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Scene.Scene_Base;
+import fun.android.towerofgodone.View.View_Transition;
 
 public class fun {
     public static RelativeLayout main_back, main_layout;
     public static Scene_Base scene;
+    public static View_Transition view_transition;
     public static Enemy_Object enemy_object;
+    public static List<String> item_list = new ArrayList<>();
     public static int Map_Index = 0;
 
     public static void Mess(Context context, String text){

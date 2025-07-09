@@ -13,6 +13,7 @@ import fun.android.towerofgodone.Data.map_5.DaLiJinGang;
 import fun.android.towerofgodone.Data.map_5.KeMoDuoZhanZhenJuShou;
 import fun.android.towerofgodone.Data.map_5.LongLang;
 import fun.android.towerofgodone.Data.map_5.ShuangYiYingShi;
+import fun.android.towerofgodone.Data.map_5.TianMoXie;
 import fun.android.towerofgodone.Data.map_5.XueMang;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
@@ -21,12 +22,10 @@ public class Scene_Map_5 extends Scene_Base{
     public Scene_Map_5(Context context) {
         super(context);
         fun.Map_Index = 5;
-        Bitmap back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+
         view = LayoutInflater.from(context).inflate(R.layout.scene_map_5, null);
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
             fun.Map_Index = 0;
         });
 
@@ -44,43 +43,49 @@ public class Scene_Map_5 extends Scene_Base{
         enemy_6.setImageBitmap(fun.loadBitmapFromAssets(context, "map_5/dalijingang.png"));
         ImageView enemy_7 = view.findViewById(R.id.enemy_7);
         enemy_7.setImageBitmap(fun.loadBitmapFromAssets(context, "map_5/kemoduozhanzhenjushou.png"));
+        ImageView enemy_8 = view.findViewById(R.id.enemy_8);
+        enemy_8.setImageBitmap(fun.loadBitmapFromAssets(context, "map_5/tianmoxie.png"));
 
         enemy_1.setOnClickListener(V->{
             fun.enemy_object = new BaWangLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_2.setOnClickListener(V->{
             fun.enemy_object = new LongLang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_3.setOnClickListener(V->{
             fun.enemy_object = new XueMang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_4.setOnClickListener(V->{
             fun.enemy_object = new ShuangYiYingShi();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_5.setOnClickListener(V->{
             fun.enemy_object = new AnYeFeiHu();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_6.setOnClickListener(V->{
             fun.enemy_object = new DaLiJinGang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_7.setOnClickListener(V->{
             fun.enemy_object = new KeMoDuoZhanZhenJuShou();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
+        });
+        enemy_8.setOnClickListener(V->{
+            fun.enemy_object = new TianMoXie();
+            fun.view_transition.start(new Scene_War(context));
         });
 
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

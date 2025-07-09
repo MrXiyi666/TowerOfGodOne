@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class Yelang extends Enemy_Object {
     public Yelang(){
-        this.HP = 750;
-        this.Attack = 140;
-        this.Defense = 90;
-        this.Critical = 10;
-        this.Speed = 100;
+        this.HP = 50;
+        this.Attack = 8;
+        this.Defense = 5;
+        this.Critical = 4;
+        this.Speed = 12;
         this.img_path = "map_1/yelang.png";
-        this.Value=10;
-        this.Gold=10;
+        this.Value=3;
+        this.Gold=5;
     }
 }

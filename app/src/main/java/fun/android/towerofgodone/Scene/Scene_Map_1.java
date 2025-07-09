@@ -20,12 +20,9 @@ public class Scene_Map_1 extends Scene_Base{
     public Scene_Map_1(Context context) {
         super(context);
         fun.Map_Index = 1;
-        Bitmap back = fun.loadBitmapFromAssets(context, "map_1/back_" + fun.Random(3) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
         view = LayoutInflater.from(context).inflate(R.layout.scene_map_1, null);
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
             fun.Map_Index = 0;
         });
         view.findViewById(R.id.enemy_1).setBackground(new BitmapDrawable(context.getResources(),
@@ -46,39 +43,39 @@ public class Scene_Map_1 extends Scene_Base{
                 fun.loadBitmapFromAssets(context, new SheGuai().img_path)));
         view.findViewById(R.id.enemy_1).setOnClickListener(V->{
             fun.enemy_object = new XiyiGuai();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_2).setOnClickListener(V->{
             fun.enemy_object = new Yelang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_3).setOnClickListener(V->{
             fun.enemy_object = new Feibian();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_4).setOnClickListener(V->{
             fun.enemy_object = new ShuiMuGuai();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_5).setOnClickListener(V->{
             fun.enemy_object = new CiQiuGuai();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_6).setOnClickListener(V->{
             fun.enemy_object = new JiaChongGuai();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_7).setOnClickListener(V->{
             fun.enemy_object = new SheGuai();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "map_1/back_" + fun.Random(3) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

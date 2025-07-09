@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class HaiOuYao extends Enemy_Object {
     public HaiOuYao() {
-        this.HP = 2200;
-        this.Attack = 330;
-        this.Defense = 180;
-        this.Critical = 24;
-        this.Speed = 200;
+        this.HP = 1800;
+        this.Attack = 175;
+        this.Defense = 23;
+        this.Critical = 16;
+        this.Speed = 26;
         this.img_path = "map_3/haiouyao.png";
-        this.Value = 115;
+        this.Value = 400;
         this.Gold = 125;
     }
 }

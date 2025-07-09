@@ -5,13 +5,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 public class ShuiMuGuai extends Enemy_Object {
 
     public ShuiMuGuai(){
-        this.HP = 500;
-        this.Attack = 120;
-        this.Defense = 80;
-        this.Critical = 10;
-        this.Speed = 70;
+        this.HP = 50;
+        this.Attack = 8;
+        this.Defense = 4;
+        this.Critical = 3;
+        this.Speed = 7;
         this.img_path = "map_1/shuimuguai.png";
-        this.Value=10;
-        this.Gold=10;
+        this.Value=5;
+        this.Gold=5;
     }
 }

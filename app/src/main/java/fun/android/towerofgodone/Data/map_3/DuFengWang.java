@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class DuFengWang extends Enemy_Object {
     public DuFengWang() {
-        this.HP = 2400;
-        this.Attack = 340;
-        this.Defense = 190;
-        this.Critical = 26;
-        this.Speed = 210;
+        this.HP = 2000;
+        this.Attack = 180;
+        this.Defense = 25;
+        this.Critical = 16;
+        this.Speed = 26;
         this.img_path = "map_3/dufengwang.png";
-        this.Value = 120;
+        this.Value = 400;
         this.Gold = 140;
 
     }

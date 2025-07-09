@@ -49,25 +49,7 @@ public class Scene_War extends Scene_Base{
         attack_img_0 = fun.loadBitmapFromAssets(context, "war/attack_0.png");
         attack_img_1 = fun.loadBitmapFromAssets(context, "war/attack_1.png");
         attack_img_2 = fun.loadBitmapFromAssets(context, "war/attack_2.png");
-        switch (fun.Map_Index){
-            case 1:
-                back = fun.loadBitmapFromAssets(context, "map_1/back_" + fun.Random(3) + ".png");
-                break;
-            case 2:
-                back = fun.loadBitmapFromAssets(context, "map_2/back_" + fun.Random(2) + ".png");
-                break;
-            case 3:
-                back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
-                break;
-            case 4:
-                back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
-                break;
-            case 5:
-                back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
-                break;
-        }
 
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
         view = LayoutInflater.from(context).inflate(R.layout.scene_war, null);
         enemy_img = view.findViewById(R.id.enemy_img);
         enemy_img.setImageBitmap(fun.loadBitmapFromAssets(context, fun.enemy_object.img_path));
@@ -95,6 +77,12 @@ public class Scene_War extends Scene_Base{
         enemy_hp.maxValue = enemy_hp_text;
         actor_hp.currentValue = Actor_Object.HP;
         actor_hp.maxValue = Actor_Object.HP;
+        if(fun.enemy_object.Speed > Actor_Object.Speed){
+            回合 = 2;
+        }else{
+            回合 = 1;
+        }
+        胜负=0;
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -102,15 +90,6 @@ public class Scene_War extends Scene_Base{
                 switch(胜负){
                     case 0:
                         switch(回合){
-
-                            case 0:  //准备阶段
-                                if(fun.enemy_object.Speed > Actor_Object.Speed){
-                                    回合 = 2;
-                                }else{
-                                    回合 = 1;
-                                }
-                                胜负=0;
-                                break;
                             case 1:  //我方攻击
                                 是否暴击="";
                                 actor_xhp.setVisibility(View.INVISIBLE);
@@ -174,7 +153,11 @@ public class Scene_War extends Scene_Base{
                         enemy_xhp.setVisibility(View.INVISIBLE);
                         actor_xhp.setVisibility(View.INVISIBLE);
                         settled_layout.setVisibility(TextView.VISIBLE);
-                        settled_text.setText("能量：" + fun.enemy_object.Value + "\n金币：" + fun.enemy_object.Gold);
+                        String text = "能量：" + fun.enemy_object.Value + "\n金币：" + fun.enemy_object.Gold;
+                        for(String name : fun.enemy_object.item){
+                            text = text + "\n"+name;
+                        }
+                        settled_text.setText(text);
                         break;
                     case 2:
                         logo_img.setImageBitmap(fun.loadBitmapFromAssets(context, "war/war_false.png"));
@@ -191,39 +174,35 @@ public class Scene_War extends Scene_Base{
         };
 
         // 启动计时器
-        handler.post(runnable);
+        handler.postDelayed(runnable, handler_time);
 
         button_cancel.setOnClickListener(V->{
             switch(fun.Map_Index){
                 case 0:
-                    fun.scene = new Scene_Map(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map(context));
                     break;
                 case 1:
-                    fun.scene = new Scene_Map_1(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map_1(context));
                     break;
                 case 2:
-                    fun.scene = new Scene_Map_2(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map_2(context));
                     break;
                 case 3:
-                    fun.scene = new Scene_Map_3(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map_3(context));
                     break;
                 case 4:
-                    fun.scene = new Scene_Map_4(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map_4(context));
                     break;
                 case 5:
-                    fun.scene = new Scene_Map_5(context);
-                    fun.scene.enable_scene();
+                    fun.view_transition.start(new Scene_Map_5(context));
                     break;
             }
             if(胜负==1){
                 Actor_Object.Value = Actor_Object.Value + fun.enemy_object.Value;
                 Actor_Object.Gold = Actor_Object.Gold + fun.enemy_object.Gold;
+                fun.item_list.addAll(fun.enemy_object.item);
                 Fun_File.Save(context);
+                Fun_File.SaveItem(context);
             }
 
         });
@@ -236,26 +215,46 @@ public class Scene_War extends Scene_Base{
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
                     // 按下事件
-                    Log.w("事件", "加速 成功");
                     handler_time = 300;
                     hasten_text.setVisibility(View.VISIBLE);
                     break;
-
                 case MotionEvent.ACTION_MOVE:
                     break;
                 case MotionEvent.ACTION_UP:
-                    Log.w("事件", "还原 成功");
                     hasten_text.setVisibility(View.INVISIBLE);
                     handler_time = 1000;
                     break;
                 case MotionEvent.ACTION_CANCEL:
-                    Log.w("事件", "还原 成功");
                     hasten_text.setVisibility(View.INVISIBLE);
                     handler_time = 1000;
                     break;
             }
             return true;
         });
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        switch (fun.Map_Index){
+            case 1:
+                back = fun.loadBitmapFromAssets(context, "map_1/back_" + fun.Random(3) + ".png");
+                break;
+            case 2:
+                back = fun.loadBitmapFromAssets(context, "map_2/back_" + fun.Random(2) + ".png");
+                break;
+            case 3:
+                back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
+                break;
+            case 4:
+                back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
+                break;
+            case 5:
+                back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
+                break;
+        }
+
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

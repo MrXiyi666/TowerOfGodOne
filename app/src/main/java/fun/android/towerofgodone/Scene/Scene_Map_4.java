@@ -23,8 +23,7 @@ public class Scene_Map_4 extends Scene_Base{
     public Scene_Map_4(Context context) {
         super(context);
         fun.Map_Index = 4;
-        Bitmap back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+
         view = LayoutInflater.from(context).inflate(R.layout.scene_map_4, null);
         ImageView enemy_1 = view.findViewById(R.id.enemy_1);
         enemy_1.setImageBitmap(fun.loadBitmapFromAssets(context, "map_4/longshi.png"));
@@ -48,61 +47,57 @@ public class Scene_Map_4 extends Scene_Base{
         enemy_10.setImageBitmap(fun.loadBitmapFromAssets(context, "map_4/feilongwang.png"));
 
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
             fun.Map_Index = 0;
         });
 
         enemy_1.setOnClickListener(V->{
             fun.enemy_object = new LongShi();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_2.setOnClickListener(V->{
             fun.enemy_object = new YanYiMoLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_3.setOnClickListener(V->{
             fun.enemy_object = new JinLingShengLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_4.setOnClickListener(V->{
             fun.enemy_object = new CuiYingLingLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_5.setOnClickListener(V->{
             fun.enemy_object = new BingJingLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_6.setOnClickListener(V->{
             fun.enemy_object = new HuangJinSanTouLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_7.setOnClickListener(V->{
             fun.enemy_object = new XianNvLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_8.setOnClickListener(V->{
             fun.enemy_object = new ZuanShiLong();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_9.setOnClickListener(V->{
             fun.enemy_object = new AnYan();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_10.setOnClickListener(V->{
             fun.enemy_object = new FeiLongWang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

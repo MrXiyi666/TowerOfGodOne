@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class SantouXuemoNiu extends Enemy_Object {
     public SantouXuemoNiu(){
-        this.HP = 1500;
-        this.Attack = 220;
-        this.Defense = 180;
-        this.Critical = 12;
-        this.Speed = 75;
+        this.HP = 1200;
+        this.Attack = 95;
+        this.Defense = 18;
+        this.Critical = 10;
+        this.Speed = 17;
         this.img_path = "map_2/santouxuemoniu.png";
-        this.Value=50;
+        this.Value=200;
         this.Gold=50;
     }
 }

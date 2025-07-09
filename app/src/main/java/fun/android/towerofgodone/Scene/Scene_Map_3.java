@@ -23,8 +23,7 @@ public class Scene_Map_3 extends Scene_Base{
     public Scene_Map_3(Context context) {
         super(context);
         fun.Map_Index = 3;
-        Bitmap back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+
         view = LayoutInflater.from(context).inflate(R.layout.scene_map_3, null);
         ImageView enemy_1 = view.findViewById(R.id.enemy_1);
         enemy_1.setImageBitmap(fun.loadBitmapFromAssets(context, "map_3/hudieyao.png"));
@@ -47,62 +46,59 @@ public class Scene_Map_3 extends Scene_Base{
 
         enemy_1.setOnClickListener(V->{
             fun.enemy_object = new HuDieYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_2.setOnClickListener(V->{
             fun.enemy_object = new QinSheYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_3.setOnClickListener(V->{
             fun.enemy_object = new NiuYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_4.setOnClickListener(V->{
             fun.enemy_object = new HaiOuYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_5.setOnClickListener(V->{
             fun.enemy_object = new HaiGuiYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_6.setOnClickListener(V->{
             fun.enemy_object = new ShuYao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_7.setOnClickListener(V->{
             fun.enemy_object = new DuFengWang();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         enemy_8.setOnClickListener(V->{
             fun.enemy_object = new XueYaKuangYuan();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
         enemy_9.setOnClickListener(V->{
             fun.enemy_object = new CuiYuNiao();
-            fun.scene = new Scene_War(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_War(context));
         });
 
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
             fun.Map_Index = 0;
         });
+    }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

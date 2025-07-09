@@ -212,7 +212,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
-            android:id="@+id/button_mall"
+            android:id="@+id/button_shop"
             android:text="商城"
             android:textSize="20sp"
             android:layout_width="0dp"

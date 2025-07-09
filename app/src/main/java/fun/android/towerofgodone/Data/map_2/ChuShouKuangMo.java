@@ -4,13 +4,13 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 
 public class ChuShouKuangMo extends Enemy_Object {
     public ChuShouKuangMo(){
-        this.HP = 1200;
-        this.Attack = 180;
-        this.Defense = 130;
+        this.HP = 1150;
+        this.Attack = 90;
+        this.Defense = 16;
         this.Critical = 12;
-        this.Speed = 90;
+        this.Speed = 18;
         this.img_path = "map_2/chushoukuangmo.png";
-        this.Value=50;
+        this.Value=230;
         this.Gold=50;
     }
 }

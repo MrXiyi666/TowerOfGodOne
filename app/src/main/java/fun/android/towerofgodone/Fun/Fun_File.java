@@ -14,6 +14,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -50,6 +51,20 @@ public class Fun_File {
         }
 
         return content.toString();
+    }
+
+    public static boolean ReadItem(Context context){
+        String data = readString(context, getPath(context) + "save/item.txt");
+        if(data.isEmpty()){
+            return false;
+        }
+        Gson gson = new Gson();
+        fun.item_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+
+    public static boolean SaveItem(Context context){
+        return WriteString(getPath(context) + "save/item.txt", new Gson().toJson(fun.item_list));
     }
 
     public static boolean Save(Context context){
@@ -106,7 +121,7 @@ public class Fun_File {
                 case "Value":
                     Actor_Object.Value = fun.toInt(map.get(key));
                     break;
-                case "ValGoldue":
+                case "Gold":
                     Actor_Object.Gold = fun.toInt(map.get(key));
                     break;
                 case "Arms":

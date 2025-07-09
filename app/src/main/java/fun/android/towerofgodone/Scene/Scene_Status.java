@@ -17,14 +17,12 @@ import fun.android.towerofgodone.Window.Window_Boundary;
 public class Scene_Status extends Scene_Base{
     public Scene_Status(Context context) {
         super(context);
-        Bitmap back = fun.loadBitmapFromAssets(context, "status/back_" + fun.Random(7) + ".png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+
         view = LayoutInflater.from(context).inflate(R.layout.scene_status, null);
         ImageView actor_avatar_img = view.findViewById(R.id.actor_avatar_img);
         actor_avatar_img.setImageBitmap(fun.loadBitmapFromAssets(context, "actor/avatar.png"));
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
         });
         refresh();
         AppCompatButton button_up_boundary = view.findViewById(R.id.button_up_boundary);
@@ -55,6 +53,14 @@ public class Scene_Status extends Scene_Base{
         TextView actor_dress_text = view.findViewById(R.id.actor_dress_text);
         actor_dress_text.setText(Actor_Object.Dress + "");
     }
+
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "status/back_" + fun.Random(7) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+    }
+
     @Override
     public void Release() {
         super.Release();

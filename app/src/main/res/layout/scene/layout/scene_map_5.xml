@@ -132,6 +132,23 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
+            <ImageView
+                android:id="@+id/enemy_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:text="超阶魔兽 天魔蝎"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
         </LinearLayout>
     </ScrollView>
     <LinearLayout

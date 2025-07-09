@@ -12,20 +12,27 @@ public class Scene_Title extends Scene_Base {
 
     public Scene_Title(Context context){
         super(context);
-        Bitmap back = fun.loadBitmapFromAssets(context, "background/back0.png");
-        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
         view = LayoutInflater.from(context).inflate(R.layout.scene_title, null);
         view.findViewById(R.id.open_game_button).setOnClickListener(V->{
-            fun.scene = new Scene_Map(context);
-            fun.scene.enable_scene();
+            fun.view_transition.start(new Scene_Map(context));
         });
 
         Create_Game(context);
     }
 
+    @Override
+    public void enable_scene(Context context) {
+        super.enable_scene();
+        Bitmap back = fun.loadBitmapFromAssets(context, "title/back_"+ fun.Random(2)+".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+    }
+
     public void Create_Game(Context context){
         if(!Fun_File.Read(context)){
             Fun_File.Save(context);
+        }
+        if(!Fun_File.ReadItem(context)){
+            Fun_File.SaveItem(context);
         }
     }
     @Override
