@@ -10,7 +10,7 @@ public class Actor_Object {
     public static String img_path = "actor/actor_false.png";
     public static int Value = 0;    //能量值
     public static int Gold = 0;     //金币
-    public static int Arms = 0;    //装备编号
-    public static int Dress = 0;   //衣服编号
+    public static String Arms = "";    //装备编号
+    public static String Dress = "";   //衣服编号
 
 }

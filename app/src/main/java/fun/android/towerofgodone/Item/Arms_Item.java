@@ -10,9 +10,9 @@ import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
 
-public class Goods_Item {
+public class Arms_Item {
     public View view;
-    public Goods_Item(Context context, Goods_Object goods_object, LinearLayout linear){
+    public Arms_Item(Context context, Goods_Object goods_object, LinearLayout linear){
         view = LayoutInflater.from(context).inflate(R.layout.goods_item, null);
         TextView name = view.findViewById(R.id.name);
         TextView shows = view.findViewById(R.id.shows);
@@ -20,9 +20,9 @@ public class Goods_Item {
         name.setText(goods_object.getName());
         view.setOnClickListener(V->{
             goods_object.fun(context);
-            linear.removeView(view);
-            fun.item_list.remove(goods_object.name);
-            Fun_File.SaveItem(context);
+            //linear.removeView(view);
+            //fun.arms_list.remove(goods_object.name);
+            //Fun_File.SaveArms(context);
         });
     }
 }

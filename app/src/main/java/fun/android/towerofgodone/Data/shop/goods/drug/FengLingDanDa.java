@@ -11,6 +11,7 @@ public class FengLingDanDa extends Goods_Object {
         this.name="风灵丹 大";
         this.shows = "永久增加 50点速度";
         this.price = 2000;
+        this.type="drug";
     }
 
     @Override

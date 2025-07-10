@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import fun.android.towerofgodone.Data.Actor_Object;
+import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.drug.BaiNianZhuGuo;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanDa;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanXiao;
@@ -62,61 +66,77 @@ public class Scene_Shop extends Scene_Base{
 
         gold_text.setText(Actor_Object.Gold + "金币");
         drug_fun(context, gold_text);
+        arms_fun(context, gold_text);
     }
     public void drug_fun(Context context, StrokeTextView gold_text){
         view_drug.findViewById(R.id.item_1).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new ShengMingNengLiangXiao(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new ShengMingNengLiangXiao(), gold_text);
         });
         view_drug.findViewById(R.id.item_2).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new ShenMingNengLiangZhong(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new ShenMingNengLiangZhong(), gold_text);
         });
         view_drug.findViewById(R.id.item_3).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new ShenMingNengLiangDa(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new ShenMingNengLiangDa(), gold_text);
         });
         view_drug.findViewById(R.id.item_4).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new ZhuGuo(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new ZhuGuo(), gold_text);
         });
         view_drug.findViewById(R.id.item_5).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new BaiNianZhuGuo(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new BaiNianZhuGuo(), gold_text);
         });
         view_drug.findViewById(R.id.item_6).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new QianNianZhuGuo(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new QianNianZhuGuo(), gold_text);
         });
         view_drug.findViewById(R.id.item_7).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LiLiangDanXiao(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LiLiangDanXiao(), gold_text);
         });
         view_drug.findViewById(R.id.item_8).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LiLiangDanZhong(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LiLiangDanZhong(), gold_text);
         });
         view_drug.findViewById(R.id.item_9).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LiLiangDanDa(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LiLiangDanDa(), gold_text);
         });
         view_drug.findViewById(R.id.item_10).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new HuTiDanXiao(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new HuTiDanXiao(), gold_text);
         });
         view_drug.findViewById(R.id.item_11).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new HuTiDanZhong(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new HuTiDanZhong(), gold_text);
         });
         view_drug.findViewById(R.id.item_12).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new HuTiDanDa(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new HuTiDanDa(), gold_text);
         });
         view_drug.findViewById(R.id.item_13).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new FengLingDanXiao(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new FengLingDanXiao(), gold_text);
         });
         view_drug.findViewById(R.id.item_14).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new FengLingDanZhong(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new FengLingDanZhong(), gold_text);
         });
         view_drug.findViewById(R.id.item_15).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new FengLingDanDa(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new FengLingDanDa(), gold_text);
         });
         view_drug.findViewById(R.id.item_16).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LongYinDanXiao(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LongYinDanXiao(), gold_text);
         });
         view_drug.findViewById(R.id.item_17).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LongYinDanZhong(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LongYinDanZhong(), gold_text);
         });
         view_drug.findViewById(R.id.item_18).setOnClickListener(V->{
-            new Window_Shop_Buy(context, new LongYinDanDa(), gold_text);
+            Window_Shop_Buy.Buy_Drug(context, new LongYinDanDa(), gold_text);
+        });
+    }
+
+    public void arms_fun(Context context, StrokeTextView gold_text){
+        view_arms.findViewById(R.id.item_1).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new YingGuangJian(), gold_text);
+        });
+        view_arms.findViewById(R.id.item_2).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new ZhanHunDao(), gold_text);
+        });
+        view_arms.findViewById(R.id.item_3).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new XingBaoJian(), gold_text);
+        });
+        view_arms.findViewById(R.id.item_4).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new PoHuaiMoJian(), gold_text);
         });
     }
     @Override

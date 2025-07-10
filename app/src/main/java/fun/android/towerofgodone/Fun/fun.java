@@ -34,7 +34,8 @@ public class fun {
     public static Scene_Base scene;
     public static View_Transition view_transition;
     public static Enemy_Object enemy_object;
-    public static List<String> item_list = new ArrayList<>();
+    public static List<String> drug_list = new ArrayList<>();
+    public static List<String> arms_list = new ArrayList<>();
     public static int Map_Index = 0;
 
     public static void Mess(Context context, String text){

@@ -11,6 +11,7 @@ public class QianNianZhuGuo extends Goods_Object {
         this.name="千年朱果";
         this.shows = "使用后立刻获得 10000点能量值";
         this.price = 10000;
+        this.type="drug";
     }
 
     @Override

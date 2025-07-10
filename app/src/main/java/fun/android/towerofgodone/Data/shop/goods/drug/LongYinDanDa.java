@@ -11,6 +11,7 @@ public class LongYinDanDa extends Goods_Object {
         this.name="龙吟丹 大";
         this.shows = "永久增加 5暴击率";
         this.price = 2000;
+        this.type="drug";
     }
 
     @Override

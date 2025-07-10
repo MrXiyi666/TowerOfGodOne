@@ -11,6 +11,7 @@ public class ZhuGuo extends Goods_Object {
         this.name="朱果";
         this.shows = "使用后立刻获得 1000点能量值";
         this.price = 1000;
+        this.type="drug";
     }
 
     @Override

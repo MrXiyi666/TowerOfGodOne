@@ -53,18 +53,32 @@ public class Fun_File {
         return content.toString();
     }
 
-    public static boolean ReadItem(Context context){
-        String data = readString(context, getPath(context) + "save/item.txt");
+    public static boolean ReadDrug(Context context){
+        String data = readString(context, getPath(context) + "save/drug.txt");
         if(data.isEmpty()){
             return false;
         }
         Gson gson = new Gson();
-        fun.item_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
+        fun.drug_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
         return true;
     }
 
-    public static boolean SaveItem(Context context){
-        return WriteString(getPath(context) + "save/item.txt", new Gson().toJson(fun.item_list));
+    public static boolean SaveDrug(Context context){
+        return WriteString(getPath(context) + "save/drug.txt", new Gson().toJson(fun.drug_list));
+    }
+
+    public static boolean ReadArms(Context context){
+        String data = readString(context, getPath(context) + "save/arms.txt");
+        if(data.isEmpty()){
+            return false;
+        }
+        Gson gson = new Gson();
+        fun.arms_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+
+    public static boolean SaveArms(Context context){
+        return WriteString(getPath(context) + "save/arms.txt", new Gson().toJson(fun.arms_list));
     }
 
     public static boolean Save(Context context){
@@ -125,10 +139,10 @@ public class Fun_File {
                     Actor_Object.Gold = fun.toInt(map.get(key));
                     break;
                 case "Arms":
-                    Actor_Object.Arms = fun.toInt(map.get(key));
+                    Actor_Object.Arms = (String) map.get(key);
                     break;
                 case "Dress":
-                    Actor_Object.Dress = fun.toInt(map.get(key));
+                    Actor_Object.Dress = (String) map.get(key);
                     break;
                 case "Boundary":
                     Actor_Object.Boundary = (String) map.get(key);

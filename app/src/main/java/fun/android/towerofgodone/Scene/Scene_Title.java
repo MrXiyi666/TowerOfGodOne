@@ -31,8 +31,11 @@ public class Scene_Title extends Scene_Base {
         if(!Fun_File.Read(context)){
             Fun_File.Save(context);
         }
-        if(!Fun_File.ReadItem(context)){
-            Fun_File.SaveItem(context);
+        if(!Fun_File.ReadDrug(context)){
+            Fun_File.SaveDrug(context);
+        }
+        if(!Fun_File.ReadArms(context)){
+            Fun_File.SaveArms(context);
         }
     }
     @Override

@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ScrollView
+        android:layout_below="@id/menu_linear"
         android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:paddingTop="60dp"
             android:paddingBottom="100dp"
             android:id="@+id/linear"
             android:orientation="vertical"
@@ -17,6 +17,46 @@
 
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:id="@+id/menu_linear"
+        android:paddingTop="70dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatButton
+            android:textSize="20sp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="3dp"
+            android:background="@drawable/button_background"
+            android:layout_weight="1"
+            android:text="药品"
+            android:textColor="@color/white"
+            android:id="@+id/button_drug"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="3dp"
+            android:textSize="20sp"
+            android:background="@drawable/button_background"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="武器"
+            android:id="@+id/button_arms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="6dp"
+            android:textSize="20sp"
+            android:background="@drawable/button_background"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="衣服"
+            android:id="@+id/button_dress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

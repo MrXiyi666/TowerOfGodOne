@@ -11,6 +11,7 @@ public class LiLiangDanDa extends Goods_Object {
         this.name="力量丹 大";
         this.shows = "永久增加 50点攻击力";
         this.price = 2000;
+        this.type="drug";
     }
 
     @Override

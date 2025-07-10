@@ -11,6 +11,7 @@ public class HuTiDanZhong extends Goods_Object {
         this.name="护体丹 中";
         this.shows = "永久增加 20点防御力";
         this.price = 1000;
+        this.type="drug";
     }
 
     @Override

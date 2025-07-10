@@ -59,6 +59,28 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:paddingTop="10dp"
+                    android:id="@+id/actor_img"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <fun.android.towerofgodone.View.StrokeTextView
+                    android:padding="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:gravity="center"
+                    android:background="#80000000"
+                    android:id="@+id/up_ok_text"
+                    android:text="提升成功"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

@@ -11,6 +11,7 @@ public class ShenMingNengLiangDa extends Goods_Object {
         this.name="生命能量 大";
         this.shows = "使用后立刻获得 500点能量值";
         this.price = 500;
+        this.type="drug";
     }
 
     @Override
