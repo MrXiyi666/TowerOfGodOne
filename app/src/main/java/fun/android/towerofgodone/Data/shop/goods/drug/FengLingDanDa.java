@@ -9,7 +9,7 @@ import fun.android.towerofgodone.Fun.Fun_File;
 public class FengLingDanDa extends Goods_Object {
     public FengLingDanDa(){
         this.name="风灵丹 大";
-        this.shows = "永久增加 50点速度";
+        this.shows = "增加 50点速度";
         this.price = 2000;
         this.type="drug";
     }
@@ -17,6 +17,6 @@ public class FengLingDanDa extends Goods_Object {
     @Override
     public void fun(Context context){
         Actor_Object.Speed = Actor_Object.Speed+50;
-        Fun_File.Save(context);
+
     }
 }

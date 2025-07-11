@@ -9,7 +9,7 @@ import fun.android.towerofgodone.Fun.Fun_File;
 public class HuTiDanXiao extends Goods_Object {
     public HuTiDanXiao(){
         this.name="护体丹 小";
-        this.shows = "永久增加 10点防御力";
+        this.shows = "增加 10点防御力";
         this.price = 500;
         this.type="drug";
     }
@@ -17,6 +17,6 @@ public class HuTiDanXiao extends Goods_Object {
     @Override
     public void fun(Context context){
         Actor_Object.Defense = Actor_Object.Defense+10;
-        Fun_File.Save(context);
+
     }
 }

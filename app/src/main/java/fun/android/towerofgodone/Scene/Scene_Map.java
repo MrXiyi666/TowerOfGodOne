@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
+import android.widget.ScrollView;
+
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
 
@@ -44,15 +46,23 @@ public class Scene_Map extends Scene_Base{
         view.findViewById(R.id.img_5).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/shiwandashan.png")
         ));
-
+        ScrollView scrollView = view.findViewById(R.id.scrollView);
+        scrollView.post(() -> scrollView.scrollTo(0, fun.scrollY));
         view.findViewById(R.id.button_status).setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_Status(context));
         });
         view.findViewById(R.id.button_shop).setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_Shop(context));
         });
         view.findViewById(R.id.button_knapsack).setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_kNapSack(context));
+        });
+        view.findViewById(R.id.button_system).setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_System(context));
         });
     }
 

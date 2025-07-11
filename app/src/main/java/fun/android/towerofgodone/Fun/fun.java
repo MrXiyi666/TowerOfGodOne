@@ -1,45 +1,40 @@
 package fun.android.towerofgodone.Fun;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.SoundPool;
 import android.util.Log;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Calendar;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-
-import fun.android.towerofgodone.Data.Actor_Object;
-import fun.android.towerofgodone.Data.Boundary_Data;
 import fun.android.towerofgodone.Data.Enemy_Object;
-import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Scene.Scene_Base;
 import fun.android.towerofgodone.View.View_Transition;
+import fun.android.towerofgodone.Window.Window_Mess;
 
 public class fun {
     public static RelativeLayout main_back, main_layout;
     public static Scene_Base scene;
     public static View_Transition view_transition;
     public static Enemy_Object enemy_object;
+    public static SoundPool soundPool;
     public static List<String> drug_list = new ArrayList<>();
     public static List<String> arms_list = new ArrayList<>();
+    public static List<String> dress_list = new ArrayList<>();
     public static int Map_Index = 0;
+    public static int scrollY=0;
+
 
     public static void Mess(Context context, String text){
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+        new Window_Mess(context, text);
     }
 
     public static int getStatusBarHeight(Context context) {
@@ -72,7 +67,14 @@ public class fun {
             return ((Double) value).intValue();
         } else if (value instanceof Float) {
             return ((Float) value).intValue();
-        }else{
+        } else if (value instanceof String) {
+            try {
+                return Integer.parseInt(((String) value).trim());
+            } catch (NumberFormatException e) {
+                // 如果字符串无法解析为整数，返回 0 或抛出异常
+                return 0;
+            }
+        } else {
             return 0;
         }
     }
@@ -80,57 +82,67 @@ public class fun {
         Random random = new Random();
         return random.nextInt(max+1);
     }
-
-    public static Integer[] 获取境界属性(String name){
-        Map<String, Integer[]> data = new HashMap<>();
-        for (Map.Entry<String, Integer[]> entry : new Boundary_Data().attributes.entrySet()) {
-            if(name.equals(entry.getKey())){
-                data.put(entry.getKey(), entry.getValue());
-                break;
-            }
+    public static void play_SE(int id){
+        fun.soundPool.play(id, 1.0f, 1.0f, 1, 0, 1.0f);
+    }
+    public static String getTime(){
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 注意：月份从 0 开始，所以要加 1
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY); // 24 小时制
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+        return year + ":" + month + ":" + day + ":" + hour + ":" + minute + ":" + second;
+    }
+    public static String getTimeToHour(){
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 注意：月份从 0 开始，所以要加 1
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY); // 24 小时制
+        return year + ":" + month + ":" + day + ":" + hour;
+    }
+    //是否经过一小时
+    public static boolean AfterToHour(String time){
+        //旧的时间
+        String outTime[] = time.split(":");
+        int outYear = toInt(outTime[0]);
+        int outMonth = toInt(outTime[1]);
+        int outDay = toInt(outTime[2]);
+        int outHour = toInt(outTime[3]);
+        Log.w("时间", "旧的时间" + outYear + " " + outMonth + " " + outDay + " " + outHour);
+        //当前时间
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // 注意：月份从 0 开始，所以要加 1
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        Log.w("时间", "当前时间" + year + " " + month + " " + day + " " + hour);
+        if(year != outYear || month != outMonth || day != outDay || hour != outHour){
+            Log.w("时间", "true");
+            return true;
         }
-        Map<String, Integer[]> orderedData = new LinkedHashMap<>(data);
+        Log.w("时间", "false");
+        return false;
+    }
+    //一小时剩余多少分钟
+    public static int AfterToHourAndMinute(){
+        Calendar calendar = Calendar.getInstance();
+        int minute = calendar.get(Calendar.MINUTE);
+        return 60-minute;
+    }
+    public static Integer[] 获取境界属性(String name){
+
+        Map<String, Integer[]> orderedData = new HashMap<>();
         return orderedData.values().stream().findFirst().orElse(null);
     }
     public static String 获取下一个境界名称(String name){
-        Map<String, Integer> data = new HashMap<>();
-        Boundary_Data boundary_data = new Boundary_Data();
-        String b_name = "";
-        boolean 开启 = false;
-        for (Map.Entry<String, Integer> entry : boundary_data.data.entrySet()) {
-            if(开启){
-                data.put(entry.getKey(), entry.getValue());
-                break;
-            }
-            if(name.equals(entry.getKey())){
-                开启 = true;
-            }
-        }
-        for (Map.Entry<String, Integer> entry : data.entrySet()) {
-            b_name = entry.getKey();
-            break;
-        }
-        return b_name;
+       return "";
     }
 
     public static int 获取下一个境界能量值(String name){
-        Map<String, Integer> data = new HashMap<>();
-        Boundary_Data boundary_data = new Boundary_Data();
-        int b_name = 0;
-        boolean 开启 = false;
-        for (Map.Entry<String, Integer> entry : boundary_data.data.entrySet()) {
-            if(开启){
-                data.put(entry.getKey(), entry.getValue());
-                break;
-            }
-            if(name.equals(entry.getKey())){
-                开启 = true;
-            }
-        }
-        for (Map.Entry<String, Integer> entry : data.entrySet()) {
-            b_name = entry.getValue();
-            break;
-        }
-        return b_name;
+
+        return 0;
     }
 }

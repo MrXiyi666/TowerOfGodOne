@@ -12,6 +12,7 @@ import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
+import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
 import fun.android.towerofgodone.Data.shop.goods.drug.BaiNianZhuGuo;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanDa;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanXiao;
@@ -67,6 +68,7 @@ public class Scene_Shop extends Scene_Base{
         gold_text.setText(Actor_Object.Gold + "金币");
         drug_fun(context, gold_text);
         arms_fun(context, gold_text);
+        dress_fun(context, gold_text);
     }
     public void drug_fun(Context context, StrokeTextView gold_text){
         view_drug.findViewById(R.id.item_1).setOnClickListener(V->{
@@ -137,6 +139,12 @@ public class Scene_Shop extends Scene_Base{
         });
         view_arms.findViewById(R.id.item_4).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Arms(context, new PoHuaiMoJian(), gold_text);
+        });
+    }
+
+    public void dress_fun(Context context, StrokeTextView gold_text){
+        view_dress.findViewById(R.id.item_1).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Dress(context, new EMoChangPao(), gold_text);
         });
     }
     @Override

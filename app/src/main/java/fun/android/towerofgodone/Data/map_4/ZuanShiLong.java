@@ -10,7 +10,7 @@ public class ZuanShiLong extends Enemy_Object {
         this.Critical = 22;
         this.Speed = 28;
         this.img_path = "map_4/zuanshilong.png";
-        this.Value = 1200;
-        this.Gold = 275;
+        this.Value = 900;
+        this.Gold = 200;
     }
 }

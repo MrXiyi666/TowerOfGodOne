@@ -7,9 +7,12 @@ public class Goods_Object {
     public String name="";
     public String shows="";
     public int price=0;
+    public int HP=0;
+    public float HP_Ratio;
     public int Attack=0;
     public float Attack_Ratio;
     public int Defense=0;
+    public float Defense_Ratio;
     public int Critical=0;
     public int Speed=0;
     public int id=0;

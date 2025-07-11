@@ -10,7 +10,7 @@ public class FeiLongWang extends Enemy_Object {
         this.Critical = 22;
         this.Speed = 30;
         this.img_path = "map_4/feilongwang.png";
-        this.Value = 1200;
-        this.Gold = 280;
+        this.Value = 1500;
+        this.Gold = 300;
     }
 }

@@ -9,12 +9,28 @@ import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
+import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
+import fun.android.towerofgodone.Data.shop.goods.drug.BaiNianZhuGuo;
+import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanDa;
+import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanXiao;
+import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanZhong;
+import fun.android.towerofgodone.Data.shop.goods.drug.HuTiDanDa;
+import fun.android.towerofgodone.Data.shop.goods.drug.HuTiDanXiao;
+import fun.android.towerofgodone.Data.shop.goods.drug.HuTiDanZhong;
+import fun.android.towerofgodone.Data.shop.goods.drug.LiLiangDanDa;
+import fun.android.towerofgodone.Data.shop.goods.drug.LiLiangDanXiao;
+import fun.android.towerofgodone.Data.shop.goods.drug.LiLiangDanZhong;
+import fun.android.towerofgodone.Data.shop.goods.drug.LongYinDanDa;
+import fun.android.towerofgodone.Data.shop.goods.drug.LongYinDanXiao;
+import fun.android.towerofgodone.Data.shop.goods.drug.LongYinDanZhong;
+import fun.android.towerofgodone.Data.shop.goods.drug.QianNianZhuGuo;
 import fun.android.towerofgodone.Data.shop.goods.drug.ShengMingNengLiangXiao;
 import fun.android.towerofgodone.Data.shop.goods.drug.ShenMingNengLiangZhong;
 import fun.android.towerofgodone.Data.shop.goods.drug.ShenMingNengLiangDa;
 import fun.android.towerofgodone.Data.shop.goods.drug.ZhuGuo;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.Item.Arms_Item;
+import fun.android.towerofgodone.Item.Dress_Item;
 import fun.android.towerofgodone.Item.Drug_Item;
 import fun.android.towerofgodone.R;
 
@@ -50,6 +66,7 @@ public class Scene_kNapSack extends Scene_Base{
         });
         drug_create(context);
         arms_create(context);
+        dress_create(context);
     }
 
     public void drug_create(Context context){
@@ -70,6 +87,62 @@ public class Scene_kNapSack extends Scene_Base{
                     break;
                 case "朱果":
                     drugItem = new Drug_Item(context, new ZhuGuo(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "百年朱果":
+                    drugItem = new Drug_Item(context, new BaiNianZhuGuo(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "千年朱果":
+                    drugItem = new Drug_Item(context, new QianNianZhuGuo(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "力量丹 小":
+                    drugItem = new Drug_Item(context, new LiLiangDanXiao(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "力量丹 中":
+                    drugItem = new Drug_Item(context, new LiLiangDanZhong(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "力量丹 大":
+                    drugItem = new Drug_Item(context, new LiLiangDanDa(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "护体丹 小":
+                    drugItem = new Drug_Item(context, new HuTiDanXiao(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "护体丹 中":
+                    drugItem = new Drug_Item(context, new HuTiDanZhong(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "护体丹 大":
+                    drugItem = new Drug_Item(context, new HuTiDanDa(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "风灵丹 小":
+                    drugItem = new Drug_Item(context, new FengLingDanXiao(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "风灵丹 中":
+                    drugItem = new Drug_Item(context, new FengLingDanZhong(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "风灵丹 大":
+                    drugItem = new Drug_Item(context, new FengLingDanDa(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "龙吟丹 小":
+                    drugItem = new Drug_Item(context, new LongYinDanXiao(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "龙吟丹 中":
+                    drugItem = new Drug_Item(context, new LongYinDanZhong(), drug_linear);
+                    drug_linear.addView(drugItem.view);
+                    break;
+                case "龙吟丹 大":
+                    drugItem = new Drug_Item(context, new LongYinDanDa(), drug_linear);
                     drug_linear.addView(drugItem.view);
                     break;
             }
@@ -97,6 +170,18 @@ public class Scene_kNapSack extends Scene_Base{
                     arms_linear.addView(armsItem.view);
                     break;
 
+            }
+        }
+    }
+
+    public void dress_create(Context context){
+        for(String name : fun.dress_list){
+            Dress_Item dress_item;
+            switch(name){
+                case "恶魔长袍":
+                    dress_item = new Dress_Item(context, new EMoChangPao());
+                    dress_linear.addView(dress_item.view);
+                    break;
             }
         }
     }

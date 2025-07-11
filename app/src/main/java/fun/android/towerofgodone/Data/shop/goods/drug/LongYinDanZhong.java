@@ -9,7 +9,7 @@ import fun.android.towerofgodone.Fun.Fun_File;
 public class LongYinDanZhong extends Goods_Object {
     public LongYinDanZhong(){
         this.name="龙吟丹 中";
-        this.shows = "永久增加 3暴击率";
+        this.shows = "增加 3暴击率";
         this.price = 1000;
         this.type="drug";
     }
@@ -17,6 +17,6 @@ public class LongYinDanZhong extends Goods_Object {
     @Override
     public void fun(Context context){
         Actor_Object.Critical = Actor_Object.Critical+3;
-        Fun_File.Save(context);
+
     }
 }

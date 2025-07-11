@@ -10,7 +10,7 @@ public class LongLang extends Enemy_Object {
         this.Critical = 21;
         this.Speed = 30;
         this.img_path = "map_5/longlang.png";
-        this.Value = 1200;
-        this.Gold = 280;
+        this.Value = 1000;
+        this.Gold = 200;
     }
 }

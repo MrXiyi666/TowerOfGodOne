@@ -11,7 +11,7 @@ public class JinLingShengLong extends Enemy_Object {
         this.Critical = 20;
         this.Speed = 29;
         this.img_path = "map_4/jinlingshenglong.png";
-        this.Value = 1000;
-        this.Gold = 260;
+        this.Value = 900;
+        this.Gold = 210;
     }
 }

@@ -1,6 +1,8 @@
 package fun.android.towerofgodone.Fun;
 
 import android.content.Context;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -28,6 +30,11 @@ public class Fun_File {
     public static boolean ActorSaveToExists(Context context){
         return new File(getPath(context) + "save/actor_data.txt").exists();
     }
+
+    public static boolean 是否存在(Context context, String path){
+        return new File(getPath(context) + path).exists();
+    }
+
     public static boolean WriteString(String path, String data){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             writer.write(data);
@@ -53,102 +60,129 @@ public class Fun_File {
         return content.toString();
     }
 
-    public static boolean ReadDrug(Context context){
-        String data = readString(context, getPath(context) + "save/drug.txt");
-        if(data.isEmpty()){
+    public static int loadSE(Context context, String name_path){
+        try {
+            // 获取 AssetManager
+            AssetManager assetManager = context.getAssets();
+            // 打开 assets 中的音效文件
+            AssetFileDescriptor assetFileDescriptor = assetManager.openFd(name_path);
+            // 加载音效文件
+            return fun.soundPool.load(assetFileDescriptor, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
+    public static boolean ReadDress(Context context){
+        if(!new File(getPath(context) + "save/dress.txt").exists()){
             return false;
         }
-        Gson gson = new Gson();
-        fun.drug_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
+        String data = readString(context, getPath(context) + "save/dress.txt");
+        Actor_Object.Dress = fun.toInt(data);
         return true;
     }
 
-    public static boolean SaveDrug(Context context){
-        return WriteString(getPath(context) + "save/drug.txt", new Gson().toJson(fun.drug_list));
+    public static void SaveDress(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        WriteString(getPath(context) + "save/dress.txt", String.valueOf(Actor_Object.Dress));
     }
 
     public static boolean ReadArms(Context context){
+        if(!new File(getPath(context) + "save/arms.txt").exists()){
+            return false;
+        }
         String data = readString(context, getPath(context) + "save/arms.txt");
-        if(data.isEmpty()){
-            return false;
-        }
-        Gson gson = new Gson();
-        fun.arms_list = gson.fromJson(data, new TypeToken<List<String>>(){}.getType());
+        Actor_Object.Arms = fun.toInt(data);
         return true;
     }
 
-    public static boolean SaveArms(Context context){
-        return WriteString(getPath(context) + "save/arms.txt", new Gson().toJson(fun.arms_list));
-    }
-
-    public static boolean Save(Context context){
+    public static void SaveArms(Context context){
         new File(getPath(context) + "save").mkdirs();
-        Map<String, Object> actor = new HashMap<>();
-        actor.put("HP", Actor_Object.HP);
-        actor.put("Attack", Actor_Object.Attack);
-        actor.put("Defense", Actor_Object.Defense);
-        actor.put("Critical", Actor_Object.Critical);
-        actor.put("Speed", Actor_Object.Speed);
-        actor.put("img_path", Actor_Object.img_path);
-        actor.put("Value", Actor_Object.Value);
-        actor.put("Gold", Actor_Object.Gold);
-        actor.put("Arms", Actor_Object.Arms);
-        actor.put("Dress", Actor_Object.Dress);
-        actor.put("Boundary", Actor_Object.Boundary);
-        return WriteString(getPath(context) + "save/actor_data.txt", new Gson().toJson(actor));
+        WriteString(getPath(context) + "save/arms.txt", String.valueOf(Actor_Object.Arms));
     }
 
+    public static void SaveBoundary(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        WriteString(getPath(context) + "save/actor_Boundary.txt", String.valueOf(Actor_Object.Boundary));
+    }
 
-    public static boolean Read(Context context){
-        if(!ActorSaveToExists(context)){
+    public static boolean ReadBoundary(Context context){
+        if(!new File(getPath(context) + "save/actor_Boundary.txt").exists()){
             return false;
         }
-        String data = readString(context, getPath(context) + "save/actor_data.txt");
-        if(data.isEmpty()){
-            return false;
-        }
-        Type type = new TypeToken<Map<String, Object>>() {}.getType();
-        Map<String, Object> map = new Gson().fromJson(data, type);
-        if(map.isEmpty()){
-            return false;
-        }
-        for (String key : map.keySet()) {
-            switch(key){
-                case "HP":
-                    Actor_Object.HP = fun.toInt(map.get(key));
-                    break;
-                case "Attack":
-                    Actor_Object.Attack = fun.toInt(map.get(key));
-                    break;
-                case "Defense":
-                    Actor_Object.Defense = fun.toInt(map.get(key));
-                    break;
-                case "Critical":
-                    Actor_Object.Critical = fun.toInt(map.get(key));
-                    break;
-                case "Speed":
-                    Actor_Object.Speed = fun.toInt(map.get(key));
-                    break;
-                case "img_path":
-                    Actor_Object.img_path = (String) map.get(key);
-                    break;
-                case "Value":
-                    Actor_Object.Value = fun.toInt(map.get(key));
-                    break;
-                case "Gold":
-                    Actor_Object.Gold = fun.toInt(map.get(key));
-                    break;
-                case "Arms":
-                    Actor_Object.Arms = (String) map.get(key);
-                    break;
-                case "Dress":
-                    Actor_Object.Dress = (String) map.get(key);
-                    break;
-                case "Boundary":
-                    Actor_Object.Boundary = (String) map.get(key);
-                    break;
-            }
-        }
+        String data = readString(context, getPath(context) + "save/actor_Boundary.txt");
+        Actor_Object.Boundary = fun.toInt(data);
         return true;
     }
+
+    public static boolean SaveValue(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/value.txt", String.valueOf(Actor_Object.Value));
+    }
+
+    public static boolean ReadValue(Context context){
+        if(!new File(getPath(context) + "save/value.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/value.txt");
+        Actor_Object.Value = fun.toInt(data);
+        return true;
+    }
+
+    public static boolean SaveGold(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/gold.txt", String.valueOf(Actor_Object.Gold));
+    }
+
+    public static boolean ReadGold(Context context){
+        if(!new File(getPath(context) + "save/gold.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/gold.txt");
+        Actor_Object.Gold = fun.toInt(data);
+        return true;
+    }
+
+    public static boolean SaveDrugList(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/drug_list.txt", new Gson().toJson(fun.drug_list));
+    }
+
+    public static boolean ReadDrugList(Context context){
+        if(!new File(getPath(context) + "save/drug_list.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/drug_list.txt");
+        fun.drug_list = new Gson().fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+    public static boolean SaveArmsList(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/arms_list.txt", new Gson().toJson(fun.arms_list));
+    }
+
+    public static boolean ReadArmsList(Context context){
+        if(!new File(getPath(context) + "save/arms_list.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/arms_list.txt");
+        fun.arms_list = new Gson().fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+
+    public static boolean SaveDressList(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/dress_list.txt", new Gson().toJson(fun.dress_list));
+    }
+
+    public static boolean ReadDressList(Context context){
+        if(!new File(getPath(context) + "save/dress_list.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/dress_list.txt");
+        fun.dress_list = new Gson().fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+
 }

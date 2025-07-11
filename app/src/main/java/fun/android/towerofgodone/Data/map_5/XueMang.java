@@ -10,7 +10,7 @@ public class XueMang extends Enemy_Object {
         this.Critical = 24;
         this.Speed = 30;
         this.img_path = "map_5/xuemang.png";
-        this.Value = 1200;
-        this.Gold = 270;
+        this.Value = 1000;
+        this.Gold = 210;
     }
 }

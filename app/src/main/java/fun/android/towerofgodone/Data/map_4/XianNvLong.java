@@ -10,7 +10,7 @@ public class XianNvLong extends Enemy_Object {
         this.Critical = 18;
         this.Speed = 30;
         this.img_path = "map_4/xiannvlong.png";
-        this.Value = 1200;
-        this.Gold = 270;
+        this.Value = 900;
+        this.Gold = 210;
     }
 }

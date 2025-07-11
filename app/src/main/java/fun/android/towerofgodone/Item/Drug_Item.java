@@ -22,7 +22,7 @@ public class Drug_Item {
             goods_object.fun(context);
             linear.removeView(view);
             fun.drug_list.remove(goods_object.name);
-            Fun_File.SaveDrug(context);
+            Fun_File.SaveDrugList(context);
         });
     }
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 import fun.android.towerofgodone.Data.map_4.AnYan;
 import fun.android.towerofgodone.Data.map_4.BingJingLong;
@@ -45,49 +46,61 @@ public class Scene_Map_4 extends Scene_Base{
         enemy_9.setImageBitmap(fun.loadBitmapFromAssets(context, "map_4/anyan.png"));
         ImageView enemy_10 = view.findViewById(R.id.enemy_10);
         enemy_10.setImageBitmap(fun.loadBitmapFromAssets(context, "map_4/feilongwang.png"));
-
+        ScrollView scrollView = view.findViewById(R.id.scrollView);
+        scrollView.post(() -> scrollView.scrollTo(0, fun.scrollY));
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
             fun.view_transition.start(new Scene_Map(context));
+            fun.scrollY = 0;
             fun.Map_Index = 0;
         });
 
         enemy_1.setOnClickListener(V->{
             fun.enemy_object = new LongShi();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_2.setOnClickListener(V->{
             fun.enemy_object = new YanYiMoLong();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_3.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new JinLingShengLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_4.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new CuiYingLingLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_5.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new BingJingLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_6.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new HuangJinSanTouLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_7.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new XianNvLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_8.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new ZuanShiLong();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_9.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new AnYan();
             fun.view_transition.start(new Scene_War(context));
         });
         enemy_10.setOnClickListener(V->{
+            fun.scrollY = scrollView.getScrollY();
             fun.enemy_object = new FeiLongWang();
             fun.view_transition.start(new Scene_War(context));
         });

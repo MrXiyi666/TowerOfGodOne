@@ -10,7 +10,7 @@ public class TianMoXie extends Enemy_Object {
         this.Critical = 20;
         this.Speed = 30;
         this.img_path = "map_5/tianmoxie.png";
-        this.Value = 1300;
-        this.Gold = 270;
+        this.Value = 1500;
+        this.Gold = 300;
     }
 }

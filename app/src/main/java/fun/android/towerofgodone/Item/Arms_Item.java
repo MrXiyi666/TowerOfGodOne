@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
-import fun.android.towerofgodone.Fun.Fun_File;
-import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
 
 public class Arms_Item {
@@ -20,9 +18,6 @@ public class Arms_Item {
         name.setText(goods_object.getName());
         view.setOnClickListener(V->{
             goods_object.fun(context);
-            //linear.removeView(view);
-            //fun.arms_list.remove(goods_object.name);
-            //Fun_File.SaveArms(context);
         });
     }
 }

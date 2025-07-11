@@ -11,7 +11,7 @@ public class YanYiMoLong extends Enemy_Object {
         this.Critical = 20;
         this.Speed = 29;
         this.img_path = "map_4/yanyimolong.png";
-        this.Value = 800;
-        this.Gold = 250;
+        this.Value = 900;
+        this.Gold = 210;
     }
 }

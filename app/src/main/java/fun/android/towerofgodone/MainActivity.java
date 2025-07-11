@@ -1,6 +1,7 @@
 package fun.android.towerofgodone;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.view.ViewGroup;
 import androidx.activity.OnBackPressedCallback;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             fun.main_layout.setLayoutParams(params);
             fun.main_layout.setY(statusBarHeight);
         });
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         fun.view_transition.start(new Scene_Title(this));
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override

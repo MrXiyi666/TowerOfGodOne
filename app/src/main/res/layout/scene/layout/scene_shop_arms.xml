@@ -31,7 +31,7 @@
             android:layout_marginStart="5dp"
             android:background="#80000000"
             android:gravity="end"
-            android:text="1金币"
+            android:text="10000金币"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -62,7 +62,7 @@
             android:layout_marginStart="5dp"
             android:background="#80000000"
             android:gravity="end"
-            android:text="1金币"
+            android:text="20000金币"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -93,7 +93,7 @@
             android:layout_marginStart="5dp"
             android:background="#80000000"
             android:gravity="end"
-            android:text="1金币"
+            android:text="50000金币"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -124,7 +124,7 @@
             android:layout_marginStart="5dp"
             android:background="#80000000"
             android:gravity="end"
-            android:text="1金币"
+            android:text="100000金币"
             android:layout_width="0dp"
             android:layout_height="wrap_content"/>
     </LinearLayout>

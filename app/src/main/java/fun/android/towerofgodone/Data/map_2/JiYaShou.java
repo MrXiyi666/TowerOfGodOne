@@ -6,7 +6,7 @@ public class JiYaShou extends Enemy_Object {
     public JiYaShou(){
         this.HP = 1300;
         this.Attack = 110;
-        this.Defense = 18;
+        this.Defense = 22;
         this.Critical = 13;
         this.Speed = 18;
         this.img_path = "map_2/jiyashou.png";

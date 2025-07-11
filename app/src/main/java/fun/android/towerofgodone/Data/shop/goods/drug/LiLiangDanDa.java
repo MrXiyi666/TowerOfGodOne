@@ -9,7 +9,7 @@ import fun.android.towerofgodone.Fun.Fun_File;
 public class LiLiangDanDa extends Goods_Object {
     public LiLiangDanDa(){
         this.name="力量丹 大";
-        this.shows = "永久增加 50点攻击力";
+        this.shows = "增加 50点攻击力";
         this.price = 2000;
         this.type="drug";
     }
@@ -17,6 +17,6 @@ public class LiLiangDanDa extends Goods_Object {
     @Override
     public void fun(Context context){
         Actor_Object.Attack = Actor_Object.Attack+50;
-        Fun_File.Save(context);
+
     }
 }

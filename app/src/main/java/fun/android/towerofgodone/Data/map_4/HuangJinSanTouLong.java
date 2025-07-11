@@ -10,7 +10,7 @@ public class HuangJinSanTouLong extends Enemy_Object {
         this.Critical = 22;
         this.Speed = 28;
         this.img_path = "map_4/huangjinsantoulong.png";
-        this.Value = 1200;
-        this.Gold = 280;
+        this.Value = 1100;
+        this.Gold = 250;
     }
 }

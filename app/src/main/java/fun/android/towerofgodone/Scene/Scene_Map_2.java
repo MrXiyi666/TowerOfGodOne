@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.widget.ScrollView;
 
 import fun.android.towerofgodone.Data.map_1.XiyiGuai;
 import fun.android.towerofgodone.Data.map_2.BaiYu;
@@ -25,8 +26,11 @@ public class Scene_Map_2 extends Scene_Base{
         view = LayoutInflater.from(context).inflate(R.layout.scene_map_2, null);
         view.findViewById(R.id.button_cancel).setOnClickListener(V->{
             fun.view_transition.start(new Scene_Map(context));
+            fun.scrollY = 0;
             fun.Map_Index = 2;
         });
+        ScrollView scrollView = view.findViewById(R.id.scrollView);
+        scrollView.post(() -> scrollView.scrollTo(0, fun.scrollY));
         view.findViewById(R.id.enemy_1).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, new KumuShuReng().img_path)));
         view.findViewById(R.id.enemy_2).setBackground(new BitmapDrawable(context.getResources(),
@@ -44,30 +48,37 @@ public class Scene_Map_2 extends Scene_Base{
 
         view.findViewById(R.id.enemy_1).setOnClickListener(V->{
             fun.enemy_object = new KumuShuReng();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_2).setOnClickListener(V->{
             fun.enemy_object = new SantouXuemoNiu();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_3).setOnClickListener(V->{
             fun.enemy_object = new BaiYu();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_4).setOnClickListener(V->{
             fun.enemy_object = new ChuShouKuangMo();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_5).setOnClickListener(V->{
             fun.enemy_object = new JinShenZhanXing();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_6).setOnClickListener(V->{
             fun.enemy_object = new YanWeiHu();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
         view.findViewById(R.id.enemy_7).setOnClickListener(V->{
             fun.enemy_object = new JiYaShou();
+            fun.scrollY = scrollView.getScrollY();
             fun.view_transition.start(new Scene_War(context));
         });
     }

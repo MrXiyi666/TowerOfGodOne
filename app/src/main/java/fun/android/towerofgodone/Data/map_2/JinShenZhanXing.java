@@ -5,7 +5,7 @@ import fun.android.towerofgodone.Data.Enemy_Object;
 public class JinShenZhanXing extends Enemy_Object {
     public JinShenZhanXing(){
         this.HP = 1300;
-        this.Attack = 90;
+        this.Attack = 95;
         this.Defense = 20;
         this.Critical = 12;
         this.Speed = 18;

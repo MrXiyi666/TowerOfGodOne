@@ -16,7 +16,7 @@ public class ShengMingNengLiangXiao extends Goods_Object {
 
     @Override
     public void fun(Context context){
-        Actor_Object.Value = Actor_Object.Value+100;
-        Fun_File.Save(context);
+        Actor_Object.Value = Actor_Object.Value + 100;
+        Fun_File.SaveValue(context);
     }
 }

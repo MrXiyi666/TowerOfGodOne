@@ -10,7 +10,7 @@ public class LongShi extends Enemy_Object {
         this.Critical = 20;
         this.Speed = 29;
         this.img_path = "map_4/longshi.png";
-        this.Value = 800;
-        this.Gold = 260;
+        this.Value = 900;
+        this.Gold = 210;
     }
 }
