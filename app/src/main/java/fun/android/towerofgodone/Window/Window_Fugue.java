@@ -32,7 +32,7 @@ public class Window_Fugue {
             public void run() {
                 switch(index){
                     case 0:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/One_Gold.png"));
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
                         index=1;
                         break;
                     case 1:
@@ -64,8 +64,8 @@ public class Window_Fugue {
             paused_type=true;
             switch(index){
                 case 0:
-                    shows.setText("一个金币");
-                    Actor_Object.Gold = Actor_Object.Gold+1;
+                    shows.setText("1000 个金币");
+                    Actor_Object.Gold = Actor_Object.Gold+1000;
                     Fun_File.SaveGold(context);
                     break;
                 case 1:

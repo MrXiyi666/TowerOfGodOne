@@ -5,6 +5,7 @@ import android.content.Context;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
+import fun.android.towerofgodone.Fun.fun;
 
 public class HuTiDanDa extends Goods_Object {
     public HuTiDanDa(){
@@ -16,7 +17,8 @@ public class HuTiDanDa extends Goods_Object {
 
     @Override
     public void fun(Context context){
-        Actor_Object.Defense = Actor_Object.Defense+50;
-
+        fun.defense_hoist = fun.defense_hoist + 50;
+        Fun_File.SaveDefenseHoist(context);
+        fun.Mess(context, "使用成功");
     }
 }

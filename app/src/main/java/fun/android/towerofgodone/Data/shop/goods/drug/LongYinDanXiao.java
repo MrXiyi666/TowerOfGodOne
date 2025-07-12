@@ -5,6 +5,7 @@ import android.content.Context;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
+import fun.android.towerofgodone.Fun.fun;
 
 public class LongYinDanXiao extends Goods_Object {
     public LongYinDanXiao(){
@@ -16,7 +17,8 @@ public class LongYinDanXiao extends Goods_Object {
 
     @Override
     public void fun(Context context){
-        Actor_Object.Critical = Actor_Object.Critical+1;
-
+        fun.critical_hoist = fun.critical_hoist + 1;
+        Fun_File.SaveCriticalHoist(context);
+        fun.Mess(context, "使用成功");
     }
 }

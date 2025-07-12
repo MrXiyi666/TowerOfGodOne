@@ -5,6 +5,7 @@ import android.content.Context;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
+import fun.android.towerofgodone.Fun.fun;
 
 public class FengLingDanZhong extends Goods_Object {
     public FengLingDanZhong(){
@@ -16,7 +17,8 @@ public class FengLingDanZhong extends Goods_Object {
 
     @Override
     public void fun(Context context){
-        Actor_Object.Speed = Actor_Object.Speed+20;
-
+        fun.speed_hoist = fun.speed_hoist + 20;
+        Fun_File.SaveSpeedHoist(context);
+        fun.Mess(context, "使用成功");
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
+import fun.android.towerofgodone.Fun.fun;
 
 public class ShenMingNengLiangDa extends Goods_Object {
     public ShenMingNengLiangDa(){
@@ -18,5 +19,6 @@ public class ShenMingNengLiangDa extends Goods_Object {
     public void fun(Context context){
         Actor_Object.Value = Actor_Object.Value+500;
         Fun_File.SaveValue(context);
+        fun.Mess(context, "使用成功");
     }
 }

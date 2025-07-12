@@ -14,10 +14,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import fun.android.towerofgodone.Data.Actor_Object;
@@ -72,6 +69,9 @@ public class Fun_File {
             e.printStackTrace();
             return 0;
         }
+    }
+    public static void release_SE(int soundId){
+        fun.soundPool.unload(soundId);
     }
 
     public static boolean ReadDress(Context context){
@@ -157,9 +157,9 @@ public class Fun_File {
         fun.drug_list = new Gson().fromJson(data, new TypeToken<List<String>>(){}.getType());
         return true;
     }
-    public static boolean SaveArmsList(Context context){
+    public static void SaveArmsList(Context context){
         new File(getPath(context) + "save").mkdirs();
-        return WriteString(getPath(context) + "save/arms_list.txt", new Gson().toJson(fun.arms_list));
+        WriteString(getPath(context) + "save/arms_list.txt", new Gson().toJson(fun.arms_list));
     }
 
     public static boolean ReadArmsList(Context context){
@@ -182,6 +182,61 @@ public class Fun_File {
         }
         String data = readString(context, getPath(context) + "save/dress_list.txt");
         fun.dress_list = new Gson().fromJson(data, new TypeToken<List<String>>(){}.getType());
+        return true;
+    }
+
+    public static boolean SaveAttackHoist(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/attack_hoist.txt", String.valueOf(fun.attack_hoist));
+    }
+
+    public static boolean ReadAttackHoist(Context context){
+        if(!new File(getPath(context) + "save/attack_hoist.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/attack_hoist.txt");
+        fun.attack_hoist = fun.toInt(data);
+        return true;
+    }
+
+    public static boolean SaveDefenseHoist(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/defense_hoist.txt", String.valueOf(fun.defense_hoist));
+    }
+
+    public static boolean ReadDefenseHoist(Context context){
+        if(!new File(getPath(context) + "save/defense_hoist.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/defense_hoist.txt");
+        fun.defense_hoist = fun.toInt(data);
+        return true;
+    }
+
+    public static boolean SaveCriticalHoist(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/critical_hoist.txt", String.valueOf(fun.critical_hoist));
+    }
+
+    public static boolean ReadCriticalHoist(Context context){
+        if(!new File(getPath(context) + "save/critical_hoist.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/critical_hoist.txt");
+        fun.critical_hoist = fun.toInt(data);
+        return true;
+    }
+    public static boolean SaveSpeedHoist(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        return WriteString(getPath(context) + "save/speed_hoist.txt", String.valueOf(fun.speed_hoist));
+    }
+
+    public static boolean ReadSpeedHoist(Context context){
+        if(!new File(getPath(context) + "save/speed_hoist.txt").exists()){
+            return false;
+        }
+        String data = readString(context, getPath(context) + "save/speed_hoist.txt");
+        fun.speed_hoist = fun.toInt(data);
         return true;
     }
 

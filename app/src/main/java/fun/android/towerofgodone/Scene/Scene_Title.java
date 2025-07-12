@@ -64,11 +64,21 @@ public class Scene_Title extends Scene_Base {
         if(!Fun_File.ReadDressList(context)){
             Fun_File.SaveDressList(context);
         }
+        if(!Fun_File.ReadAttackHoist(context)){
+            Fun_File.SaveAttackHoist(context);
+        }
+        if(!Fun_File.ReadDefenseHoist(context)){
+            Fun_File.SaveDefenseHoist(context);
+        }
+        if(!Fun_File.ReadCriticalHoist(context)){
+            Fun_File.SaveCriticalHoist(context);
+        }
+        if(!Fun_File.ReadSpeedHoist(context)){
+            Fun_File.SaveSpeedHoist(context);
+        }
     }
 
     public void Create_Music(){
-
-
         fun.soundPool = new SoundPool.Builder()
                 .setMaxStreams(2)
                 .build();

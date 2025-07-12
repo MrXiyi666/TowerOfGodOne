@@ -3,8 +3,11 @@ package fun.android.towerofgodone.Fun;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.SoundPool;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +31,10 @@ public class fun {
     public static List<String> drug_list = new ArrayList<>();
     public static List<String> arms_list = new ArrayList<>();
     public static List<String> dress_list = new ArrayList<>();
+    public static int attack_hoist=0;
+    public static int defense_hoist=0;
+    public static int critical_hoist=0;
+    public static int speed_hoist=0;
     public static int Map_Index = 0;
     public static int scrollY=0;
 
@@ -132,17 +139,21 @@ public class fun {
         int minute = calendar.get(Calendar.MINUTE);
         return 60-minute;
     }
-    public static Integer[] 获取境界属性(String name){
 
-        Map<String, Integer[]> orderedData = new HashMap<>();
-        return orderedData.values().stream().findFirst().orElse(null);
+    public static void ClearImageView(ImageView imageView){
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof BitmapDrawable bitmapDrawable) {
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            if (bitmap != null && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+        }
+        imageView.setImageDrawable(null);
     }
-    public static String 获取下一个境界名称(String name){
-       return "";
-    }
-
-    public static int 获取下一个境界能量值(String name){
-
-        return 0;
+    public static void ClearBitmap(Bitmap bitmap){
+        if (bitmap != null && !bitmap.isRecycled()) {
+            bitmap.recycle();
+            bitmap = null;
+        }
     }
 }

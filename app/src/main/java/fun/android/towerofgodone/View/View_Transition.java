@@ -52,6 +52,9 @@ public class View_Transition extends View {
                 }else{
                     index=1;
                     alpha=250;
+                    if(fun.scene!=null){
+                        fun.scene.Quit();
+                    }
                     fun.scene = scene_base;
                     fun.scene.enable_scene(context);
                 }

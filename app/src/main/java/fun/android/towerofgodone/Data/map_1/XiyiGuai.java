@@ -11,6 +11,6 @@ public class XiyiGuai extends Enemy_Object {
         this.Speed = 9;
         this.img_path = "map_1/xiyiguai.png";
         this.Value=6;
-        this.Gold=800000;
+        this.Gold=8;
     }
 }

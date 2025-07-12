@@ -50,33 +50,33 @@ public class Scene_Status extends Scene_Base{
         value.setText(Actor_Object.Value + "");
         switch(Actor_Object.Arms){
             case 1:
-                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new YingGuangJian().Attack + new YingGuangJian().Attack_Ratio * Actor_Object.getAttack()));
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new YingGuangJian().Attack + new YingGuangJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             case 2:
-                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new ZhanHunDao().Attack + new ZhanHunDao().Attack_Ratio * Actor_Object.getAttack()));
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new ZhanHunDao().Attack + new ZhanHunDao().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             case 3:
-                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new XingBaoJian().Attack + new XingBaoJian().Attack_Ratio * Actor_Object.getAttack()));
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new XingBaoJian().Attack + new XingBaoJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             case 4:
-                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new PoHuaiMoJian().Attack + new PoHuaiMoJian().Attack_Ratio * Actor_Object.getAttack()));
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new PoHuaiMoJian().Attack + new PoHuaiMoJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             default:
-                actor_attack_text.setText(Actor_Object.getAttack() + "");
+                actor_attack_text.setText(Actor_Object.getAttack() +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
         }
         switch(Actor_Object.Dress){
             case 1:
-                actor_defense_text.setText(Actor_Object.getDefense() + " + " + (int)(new EMoChangPao().Defense + new EMoChangPao().Defense_Ratio * Actor_Object.getDefense()));
+                actor_defense_text.setText(Actor_Object.getDefense() + " + " + (int)(new EMoChangPao().Defense + new EMoChangPao().Defense_Ratio * Actor_Object.getDefense()) + (fun.defense_hoist != 0 ? " + " + fun.defense_hoist : ""));
                 actor_hp_text.setText(Actor_Object.getHP() + " + " + new EMoChangPao().HP);
                 break;
             default:
-                actor_defense_text.setText(Actor_Object.getDefense() + "");
+                actor_defense_text.setText(Actor_Object.getDefense() + "" +  (fun.defense_hoist != 0 ? " + " + fun.defense_hoist : ""));
                 actor_hp_text.setText(Actor_Object.getHP() + "");
         }
 
-        actor_critical_text.setText(Actor_Object.getCritical() + "");
+        actor_critical_text.setText(Actor_Object.getCritical() + "" +  (fun.critical_hoist != 0 ? " + " + fun.critical_hoist : ""));
 
-        actor_speed_text.setText(Actor_Object.getSpeed() + "");
+        actor_speed_text.setText(Actor_Object.getSpeed() + "" +  (fun.speed_hoist != 0 ? " + " + fun.speed_hoist : ""));
 
         actor_arms_text.setText(Actor_Object.getArms());
 
@@ -85,16 +85,15 @@ public class Scene_Status extends Scene_Base{
 
         actor_arms_text.setOnClickListener(V->{
             actor_arms_text.setText("");
-            actor_attack_text.setText(Actor_Object.getAttack() + "");
+            actor_attack_text.setText(Actor_Object.getAttack() +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
             Actor_Object.Arms=0;
-
             fun.Mess(context,"卸掉武器");
         });
 
         actor_dress_text.setOnClickListener(V->{
             actor_dress_text.setText("");
             actor_hp_text.setText(Actor_Object.getHP() + "");
-            actor_defense_text.setText(Actor_Object.getDefense() + "");
+            actor_defense_text.setText(Actor_Object.getDefense() + "" +  (fun.defense_hoist != 0 ? " + " + fun.defense_hoist : ""));
             Actor_Object.Dress=0;
             fun.Mess(context,"卸掉衣服");
         });

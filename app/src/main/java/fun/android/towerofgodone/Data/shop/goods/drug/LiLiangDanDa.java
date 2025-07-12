@@ -5,6 +5,7 @@ import android.content.Context;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.Goods_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
+import fun.android.towerofgodone.Fun.fun;
 
 public class LiLiangDanDa extends Goods_Object {
     public LiLiangDanDa(){
@@ -16,7 +17,8 @@ public class LiLiangDanDa extends Goods_Object {
 
     @Override
     public void fun(Context context){
-        Actor_Object.Attack = Actor_Object.Attack+50;
-
+        fun.attack_hoist = fun.attack_hoist+50;
+        Fun_File.SaveAttackHoist(context);
+        fun.Mess(context, "使用成功");
     }
 }

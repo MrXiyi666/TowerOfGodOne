@@ -3,11 +3,8 @@ package fun.android.towerofgodone.Scene;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ScrollView;
-
-import fun.android.towerofgodone.Data.map_1.XiyiGuai;
 import fun.android.towerofgodone.Data.map_2.BaiYu;
 import fun.android.towerofgodone.Data.map_2.ChuShouKuangMo;
 import fun.android.towerofgodone.Data.map_2.JiYaShou;
