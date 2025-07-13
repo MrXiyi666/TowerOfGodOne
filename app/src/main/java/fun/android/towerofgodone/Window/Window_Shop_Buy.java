@@ -39,7 +39,7 @@ public class Window_Shop_Buy {
             }
         });
         dialog.setView(view);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         Objects.requireNonNull(dialog.getWindow()).setGravity(Gravity.TOP);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -68,7 +68,7 @@ public class Window_Shop_Buy {
             }
         });
         dialog.setView(view);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         Objects.requireNonNull(dialog.getWindow()).setGravity(Gravity.TOP);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -101,7 +101,7 @@ public class Window_Shop_Buy {
             }
         });
         dialog.setView(view);
-        dialog.setCancelable(false);
+        dialog.setCancelable(true);
         Objects.requireNonNull(dialog.getWindow()).setGravity(Gravity.TOP);
         Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

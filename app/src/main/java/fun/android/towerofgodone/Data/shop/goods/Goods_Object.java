@@ -10,9 +10,9 @@ public class Goods_Object {
     public int HP=0;
     public float HP_Ratio;
     public int Attack=0;
-    public float Attack_Ratio;
+    public float Attack_Ratio=0;
     public int Defense=0;
-    public float Defense_Ratio;
+    public float Defense_Ratio=0;
     public int Critical=0;
     public int Speed=0;
     public int id=0;

@@ -15,20 +15,34 @@ public class Scene_Map extends Scene_Base{
         super(context);
 
         view = LayoutInflater.from(context).inflate(R.layout.scene_map, null);
+        ScrollView scrollView = view.findViewById(R.id.scrollView);
         view.findViewById(R.id.map_1).setOnClickListener(V->{
-            fun.view_transition.start(new Scene_Map_1(context));
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_MoWuSenLin(context));
         });
         view.findViewById(R.id.map_2).setOnClickListener(V->{
-            fun.view_transition.start(new Scene_Map_2(context));
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_ShiWaiTaoYuan(context));
         });
         view.findViewById(R.id.map_3).setOnClickListener(V->{
-            fun.view_transition.start(new Scene_Map_3(context));
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_HuaHaiPan(context));
         });
         view.findViewById(R.id.map_4).setOnClickListener(V->{
-            fun.view_transition.start(new Scene_Map_4(context));
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_FeiLongGu(context));
         });
         view.findViewById(R.id.map_5).setOnClickListener(V->{
-            fun.view_transition.start(new Scene_Map_5(context));
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_ShiWanDaShan(context));
+        });
+        view.findViewById(R.id.map_6).setOnClickListener(V->{
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_HuiYuTianJing(context));
+        });
+        view.findViewById(R.id.map_7).setOnClickListener(V->{
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_YongYeMoYu(context));
         });
         view.findViewById(R.id.img_1).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/mowusenling.png")
@@ -46,22 +60,28 @@ public class Scene_Map extends Scene_Base{
         view.findViewById(R.id.img_5).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/shiwandashan.png")
         ));
-        ScrollView scrollView = view.findViewById(R.id.scrollView);
-        scrollView.post(() -> scrollView.scrollTo(0, fun.scrollY));
+        view.findViewById(R.id.img_6).setBackground(new BitmapDrawable(context.getResources(),
+                fun.loadBitmapFromAssets(context, "map/huiyutianjing.png")
+        ));
+        view.findViewById(R.id.img_7).setBackground(new BitmapDrawable(context.getResources(),
+                fun.loadBitmapFromAssets(context, "map/yongyemoyu.png")
+        ));
+
+        scrollView.post(() -> scrollView.scrollTo(0, fun.scrollY_Map));
         view.findViewById(R.id.button_status).setOnClickListener(V->{
-            fun.scrollY = scrollView.getScrollY();
+            fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_Status(context));
         });
         view.findViewById(R.id.button_shop).setOnClickListener(V->{
-            fun.scrollY = scrollView.getScrollY();
+            fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_Shop(context));
         });
         view.findViewById(R.id.button_knapsack).setOnClickListener(V->{
-            fun.scrollY = scrollView.getScrollY();
+            fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_kNapSack(context));
         });
         view.findViewById(R.id.button_system).setOnClickListener(V->{
-            fun.scrollY = scrollView.getScrollY();
+            fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_System(context));
         });
     }

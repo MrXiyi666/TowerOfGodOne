@@ -16,13 +16,13 @@ public class YingGuangJian extends Goods_Object {
         this.img_path="arms/yingguangjian.png";
         this.Attack = 10;
         this.Attack_Ratio= 0.1F;
-        this.id=1;
+        this.id=7;
     }
 
     @Override
     public void fun(Context context) {
         super.fun(context);
-        Actor_Object.Arms = 1;
+        Actor_Object.Arms = 7;
         Fun_File.SaveArms(context);
         fun.Mess(context, "装备成功");
     }

@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.XuanTieZhongJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.YiTianJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
@@ -129,15 +131,21 @@ public class Scene_Shop extends Scene_Base{
 
     public void arms_fun(Context context, StrokeTextView gold_text){
         view_arms.findViewById(R.id.item_1).setOnClickListener(V->{
-            Window_Shop_Buy.Buy_Arms(context, new YingGuangJian(), gold_text);
+            Window_Shop_Buy.Buy_Arms(context, new XuanTieZhongJian(), gold_text);
         });
         view_arms.findViewById(R.id.item_2).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new YiTianJian(), gold_text);
+        });
+        view_arms.findViewById(R.id.item_7).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Arms(context, new YingGuangJian(), gold_text);
+        });
+        view_arms.findViewById(R.id.item_8).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Arms(context, new ZhanHunDao(), gold_text);
         });
-        view_arms.findViewById(R.id.item_3).setOnClickListener(V->{
+        view_arms.findViewById(R.id.item_9).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Arms(context, new XingBaoJian(), gold_text);
         });
-        view_arms.findViewById(R.id.item_4).setOnClickListener(V->{
+        view_arms.findViewById(R.id.item_10).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Arms(context, new PoHuaiMoJian(), gold_text);
         });
     }

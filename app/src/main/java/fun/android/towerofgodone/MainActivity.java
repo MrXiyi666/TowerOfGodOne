@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 if(fun.scene instanceof Scene_Title){
                     startActivity(intent);
                 }else if(!(fun.scene instanceof Scene_Map)){
+                    fun.scrollY = 0;
                     fun.view_transition.start(new Scene_Map(MainActivity.this));
                 }else{
                     startActivity(intent);

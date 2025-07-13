@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 
 import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.XuanTieZhongJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.YiTianJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
@@ -153,6 +155,14 @@ public class Scene_kNapSack extends Scene_Base{
         for(String name : fun.arms_list){
             Arms_Item armsItem;
             switch(name){
+                case "玄铁重剑":
+                    armsItem = new Arms_Item(context, new XuanTieZhongJian(), drug_linear);
+                    arms_linear.addView(armsItem.view);
+                    break;
+                case "倚天剑":
+                    armsItem = new Arms_Item(context, new YiTianJian(), drug_linear);
+                    arms_linear.addView(armsItem.view);
+                    break;
                 case "荧光剑":
                     armsItem = new Arms_Item(context, new YingGuangJian(), drug_linear);
                     arms_linear.addView(armsItem.view);

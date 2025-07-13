@@ -31,7 +31,7 @@
                         android:id="@+id/img_1"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:gravity="center_horizontal"
@@ -54,7 +54,7 @@
                         android:id="@+id/img_2"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:textColor="@color/white"
@@ -86,7 +86,7 @@
                         android:id="@+id/img_3"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:gravity="center_horizontal"
@@ -109,7 +109,7 @@
                         android:id="@+id/img_4"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:textColor="@color/white"
@@ -141,7 +141,7 @@
                         android:id="@+id/img_5"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:gravity="center_horizontal"
@@ -164,7 +164,62 @@
                         android:id="@+id/img_6"
                         android:adjustViewBounds="true"
                         android:layout_gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+                    <fun.android.towerofgodone.View.StrokeTextView
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:text="辉羽天境"
+                        android:textSize="20sp"
+                        android:autoSizeTextType="uniform"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 上面是第三排 -->
+            <!-- 这是第四排 -->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/map_7"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_7"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+                    <fun.android.towerofgodone.View.StrokeTextView
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/white"
+                        android:text="永夜魔域"
+                        android:textSize="20sp"
+                        android:autoSizeTextType="uniform"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/map_8"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/img_8"
+                        android:adjustViewBounds="true"
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"/>
                     <fun.android.towerofgodone.View.StrokeTextView
                         android:textColor="@color/white"
@@ -176,7 +231,7 @@
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
             </LinearLayout>
-            <!-- 上面是第三排 -->
+            <!-- 上面是第四排 -->
         </LinearLayout>
     </ScrollView>
     <LinearLayout

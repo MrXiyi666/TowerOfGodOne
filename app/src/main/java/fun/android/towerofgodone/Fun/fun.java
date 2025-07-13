@@ -36,7 +36,7 @@ public class fun {
     public static int critical_hoist=0;
     public static int speed_hoist=0;
     public static int Map_Index = 0;
-    public static int scrollY=0;
+    public static int scrollY=0, scrollY_Map=0;
 
 
     public static void Mess(Context context, String text){

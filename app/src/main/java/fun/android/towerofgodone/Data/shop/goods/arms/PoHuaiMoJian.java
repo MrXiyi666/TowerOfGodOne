@@ -16,11 +16,11 @@ public class PoHuaiMoJian extends Goods_Object {
         this.type="arms";
         this.Attack=100;
         this.Attack_Ratio=0.5f;
-        this.id=4;
+        this.id=10;
     }
     @Override
     public void fun(Context context){
-        Actor_Object.Arms = 4;
+        Actor_Object.Arms = 10;
         Fun_File.SaveArms(context);
         fun.Mess(context, "装备成功");
     }

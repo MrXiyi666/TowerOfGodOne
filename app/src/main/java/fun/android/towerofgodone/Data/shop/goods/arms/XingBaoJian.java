@@ -15,13 +15,13 @@ public class XingBaoJian extends Goods_Object {
         this.type="arms";
         this.Attack = 50;
         this.Attack_Ratio = 0.3f;
-        this.id=3;
+        this.id=9;
     }
 
     @Override
     public void fun(Context context) {
         super.fun(context);
-        Actor_Object.Arms = 3;
+        Actor_Object.Arms = 9;
         Fun_File.SaveArms(context);
         fun.Mess(context, "装备成功");
     }

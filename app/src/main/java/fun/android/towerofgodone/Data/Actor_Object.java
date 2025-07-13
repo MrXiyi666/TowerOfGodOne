@@ -589,14 +589,17 @@ public class Actor_Object {
     }
 
     public static String getArms() {
-
-        if(Arms==1){
+        if(Arms == 1){
+            return"玄铁重剑";
+        }else if(Arms == 2){
+            return"倚天剑";
+        } else if(Arms==7){
             return"荧光剑";
-        }else if(Arms==2){
+        }else if(Arms==8){
             return"战魂刀";
-        }else if(Arms==3){
+        }else if(Arms==9){
             return"星爆剑";
-        }else if(Arms==4){
+        }else if(Arms==10){
             return"破坏魔剑";
         } else{
             return"";

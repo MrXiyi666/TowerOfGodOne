@@ -13,6 +13,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.XuanTieZhongJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.YiTianJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
@@ -92,16 +94,23 @@ public class Scene_War extends Scene_Base{
             case 1:
                 actor_war_img = fun.loadBitmapFromAssets(context, "war/yingguangjian.png");
                 actor_se = Fun_File.loadSE(context, "war/se/jian_se.mp3");
-                break;
             case 2:
+                actor_war_img = fun.loadBitmapFromAssets(context, "war/yingguangjian.png");
+                actor_se = Fun_File.loadSE(context, "war/se/jian_se.mp3");
+                break;
+            case 7:
+                actor_war_img = fun.loadBitmapFromAssets(context, "war/yingguangjian.png");
+                actor_se = Fun_File.loadSE(context, "war/se/jian_se.mp3");
+                break;
+            case 8:
                 actor_war_img = fun.loadBitmapFromAssets(context, "war/zhanhundao.png");
                 actor_se = Fun_File.loadSE(context, "war/se/jian_se.mp3");
                 break;
-            case 3:
+            case 9:
                 actor_war_img = fun.loadBitmapFromAssets(context, "war/xingbaojian.png");
                 actor_se = Fun_File.loadSE(context, "war/se/xingbaojian_se.mp3");
                 break;
-            case 4:
+            case 10:
                 actor_war_img = fun.loadBitmapFromAssets(context, "war/pohuaimojian.png");
                 actor_se = Fun_File.loadSE(context, "war/se/pohuaimojian_se.mp3");
                 break;
@@ -111,15 +120,21 @@ public class Scene_War extends Scene_Base{
         }
         switch(Actor_Object.Arms){
             case 1:
-                武器攻击力 = (int)(new YingGuangJian().Attack + Actor_Object.getAttack() * new YingGuangJian().Attack_Ratio);
+                武器攻击力 = new XuanTieZhongJian().Attack;
                 break;
             case 2:
+                武器攻击力 = new YiTianJian().Attack;
+                break;
+            case 7:
+                武器攻击力 = (int)(new YingGuangJian().Attack + Actor_Object.getAttack() * new YingGuangJian().Attack_Ratio);
+                break;
+            case 8:
                 武器攻击力 = (int)(new ZhanHunDao().Attack + Actor_Object.getAttack() * new ZhanHunDao().Attack_Ratio);
                 break;
-            case 3:
+            case 9:
                 武器攻击力 = (int)(new XingBaoJian().Attack + Actor_Object.getAttack() * new XingBaoJian().Attack_Ratio);
                 break;
-            case 4:
+            case 10:
                 武器攻击力 = (int)(new PoHuaiMoJian().Attack + Actor_Object.getAttack() * new PoHuaiMoJian().Attack_Ratio);
                 break;
         }
@@ -198,20 +213,31 @@ public class Scene_War extends Scene_Base{
         view.postDelayed(runnable, handler_time);
     }
     public void 我方攻击事件(){
+        round_text.setAlpha(0.3f);
+        round_text.setText("第 " + 回合数 + " 回");
         fun.play_SE(actor_se);
         actor_img.setAlpha(1f);
         enemy_img.setAlpha(0.8f);
         actor_xhp.setVisibility(View.INVISIBLE);
         actor_attack_img.setImageBitmap(null);
-        伤害值 = (Actor_Object.getAttack() + 武器攻击力 + fun.attack_hoist) - fun.enemy_object.Defense;
+        int 我方攻击数值 = (Actor_Object.getAttack() + 武器攻击力 + fun.attack_hoist);
+        String 暴击文本="";
+        if(fun.Random(101) <= Actor_Object.getCritical() + fun.critical_hoist){
+            我方攻击数值 = 我方攻击数值 + 我方攻击数值;
+            暴击文本 = 暴击文本 + "攻击 暴击";
+        }
+        int 敌人防御数值 = fun.enemy_object.Defense;
+        if(fun.Random(101) <= fun.enemy_object.Critical){
+            敌人防御数值 = 敌人防御数值 + 敌人防御数值;
+            暴击文本 = 暴击文本 + "   防御 暴击";
+        }
+        伤害值 = 我方攻击数值 - 敌人防御数值;
         if(伤害值 <= 0){
             伤害值 = 1;
         }
-
-        if(fun.Random(101) <= Actor_Object.getCritical() + fun.critical_hoist){
-            伤害值 = 伤害值 + 伤害值;
+        if(!暴击文本.isEmpty()){
             round_text.setVisibility(View.VISIBLE);
-            round_text.setText("暴击");
+            round_text.setText(暴击文本);
             round_text.setAlpha(1f);
         }
         enemy_hp_text = enemy_hp_text - 伤害值;
@@ -229,27 +255,41 @@ public class Scene_War extends Scene_Base{
     }
 
     public void 敌方攻击事件(){
+        round_text.setAlpha(0.3f);
+        round_text.setText("第 " + 回合数 + " 回");
         fun.play_SE(war_se);
         actor_img.setAlpha(0.8f);
         enemy_img.setAlpha(1f);
         enemy_xhp.setVisibility(View.INVISIBLE);
         enemy_attack_img.setImageBitmap(null);
-        伤害值 = fun.enemy_object.Attack - (Actor_Object.getDefense() + 防御力加成 + fun.defense_hoist);
+        int 我方攻击数值 = fun.enemy_object.Attack;
+        String 暴击文本="";
+        if(fun.Random(101) <= fun.enemy_object.Critical){
+            我方攻击数值 = 我方攻击数值 + 我方攻击数值;
+            暴击文本 = 暴击文本 + "攻击 暴击";
+        }
+        int 敌人防御数值 = (Actor_Object.getDefense() + 防御力加成 + fun.defense_hoist);
+        if(fun.Random(101) <= Actor_Object.Critical){
+            敌人防御数值 = 敌人防御数值 + 敌人防御数值;
+            暴击文本 = 暴击文本 + "   防御 暴击";
+        }
+        伤害值 = 我方攻击数值 - 敌人防御数值;
         if(伤害值 <= 0){
             伤害值 = 1;
         }
-        if(fun.Random(101) <= fun.enemy_object.Critical){
-            伤害值 = 伤害值 + 伤害值;
+        if(!暴击文本.isEmpty()){
             round_text.setVisibility(View.VISIBLE);
-            round_text.setText("暴击");
+            round_text.setText(暴击文本);
             round_text.setAlpha(1f);
         }
+
         actor_hp_text = actor_hp_text - 伤害值;
-        if(actor_hp_text <= 0){
+        if(actor_hp_text<=0){
             actor_hp_text=0;
             actor_img.setAlpha(0f);
             事件流程=3;
         }
+
         actor_hp.currentValue = actor_hp_text;
         actor_hp.invalidate();
         actor_xhp.setVisibility(View.VISIBLE);
@@ -338,19 +378,25 @@ public class Scene_War extends Scene_Base{
                 fun.view_transition.start(new Scene_Map(context));
                 break;
             case 1:
-                fun.view_transition.start(new Scene_Map_1(context));
+                fun.view_transition.start(new Scene_MoWuSenLin(context));
                 break;
             case 2:
-                fun.view_transition.start(new Scene_Map_2(context));
+                fun.view_transition.start(new Scene_ShiWaiTaoYuan(context));
                 break;
             case 3:
-                fun.view_transition.start(new Scene_Map_3(context));
+                fun.view_transition.start(new Scene_HuaHaiPan(context));
                 break;
             case 4:
-                fun.view_transition.start(new Scene_Map_4(context));
+                fun.view_transition.start(new Scene_FeiLongGu(context));
                 break;
             case 5:
-                fun.view_transition.start(new Scene_Map_5(context));
+                fun.view_transition.start(new Scene_ShiWanDaShan(context));
+                break;
+            case 6:
+                fun.view_transition.start(new Scene_HuiYuTianJing(context));
+                break;
+            case 7:
+                fun.view_transition.start(new Scene_YongYeMoYu(context));
                 break;
         }
         //清除药品增加效果
@@ -370,19 +416,25 @@ public class Scene_War extends Scene_Base{
         super.enable_scene(context);
         switch (fun.Map_Index){
             case 1:
-                back = fun.loadBitmapFromAssets(context, "map_1/back_" + fun.Random(3) + ".png");
+                back = fun.loadBitmapFromAssets(context, "mowusenlin/back_" + fun.Random(3) + ".png");
                 break;
             case 2:
-                back = fun.loadBitmapFromAssets(context, "map_2/back_" + fun.Random(2) + ".png");
+                back = fun.loadBitmapFromAssets(context, "shiwaitaoyuan/back_" + fun.Random(2) + ".png");
                 break;
             case 3:
-                back = fun.loadBitmapFromAssets(context, "map_3/back_" + fun.Random(5) + ".png");
+                back = fun.loadBitmapFromAssets(context, "huahaipan/back_" + fun.Random(5) + ".png");
                 break;
             case 4:
-                back = fun.loadBitmapFromAssets(context, "map_4/back_" + fun.Random(7) + ".png");
+                back = fun.loadBitmapFromAssets(context, "feilonggu/back_" + fun.Random(7) + ".png");
                 break;
             case 5:
-                back = fun.loadBitmapFromAssets(context, "map_5/back_" + fun.Random(7) + ".png");
+                back = fun.loadBitmapFromAssets(context, "shiwandashan/back_" + fun.Random(7) + ".png");
+                break;
+            case 6:
+                back = fun.loadBitmapFromAssets(context, "huiyutianjing/back_" + fun.Random(7) + ".png");
+                break;
+            case 7:
+                back = fun.loadBitmapFromAssets(context, "yongyemoyu/back_" + fun.Random(7) + ".png");
                 break;
         }
 

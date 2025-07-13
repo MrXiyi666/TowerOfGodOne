@@ -9,6 +9,8 @@ import android.widget.TextView;
 import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Data.shop.goods.arms.PoHuaiMoJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.XingBaoJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.XuanTieZhongJian;
+import fun.android.towerofgodone.Data.shop.goods.arms.YiTianJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
@@ -50,15 +52,21 @@ public class Scene_Status extends Scene_Base{
         value.setText(Actor_Object.Value + "");
         switch(Actor_Object.Arms){
             case 1:
-                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new YingGuangJian().Attack + new YingGuangJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + new XuanTieZhongJian().Attack +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             case 2:
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + new YiTianJian().Attack +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
+                break;
+            case 7:
+                actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new YingGuangJian().Attack + new YingGuangJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
+                break;
+            case 8:
                 actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new ZhanHunDao().Attack + new ZhanHunDao().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
-            case 3:
+            case 9:
                 actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new XingBaoJian().Attack + new XingBaoJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
-            case 4:
+            case 10:
                 actor_attack_text.setText(Actor_Object.getAttack() + " + " + (int)(new PoHuaiMoJian().Attack + new PoHuaiMoJian().Attack_Ratio * Actor_Object.getAttack()) +  (fun.attack_hoist != 0 ? " + " + fun.attack_hoist : ""));
                 break;
             default:
