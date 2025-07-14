@@ -240,4 +240,22 @@ public class Fun_File {
         return true;
     }
 
+    public static void SaveCornuCopiaTimer(Context context){
+        new File(getPath(context) + "save").mkdirs();
+        WriteString(getPath(context) + "save/cornucopia_timer.txt", Fun_Time.getTime());
+    }
+    public static boolean BoolCornuCopiaTimer(Context context){
+        if(!new File(getPath(context) + "save/cornucopia_timer.txt").exists()){
+            return false;
+        }
+        return true;
+    }
+    public static String ReadCornuCopiaTimer(Context context){
+        if(!new File(getPath(context) + "save/cornucopia_timer.txt").exists()){
+            return Fun_Time.getTime();
+        }
+        return readString(context, getPath(context) + "save/cornucopia_timer.txt");
+    }
+
+
 }

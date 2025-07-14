@@ -3,8 +3,6 @@ package fun.android.towerofgodone.Window;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,7 @@ import fun.android.towerofgodone.Data.Actor_Object;
 import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
-import fun.android.towerofgodone.Scene.Scene_Status;
+import fun.android.towerofgodone.Scene.Status.Scene_Status;
 
 public class Window_Boundary {
     String up_name;

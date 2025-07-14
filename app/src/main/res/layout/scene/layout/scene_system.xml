@@ -35,5 +35,27 @@
             android:text="神游"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_background"
+            android:textSize="20sp"
+            android:textColor="@color/button_text_color"
+            android:id="@+id/button_cornucopia"
+            android:text="聚宝盆"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_background"
+            android:textSize="20sp"
+            android:textColor="@color/button_text_color"
+            android:id="@+id/button_heritage"
+            android:text="巨龙的力量"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </ScrollView>

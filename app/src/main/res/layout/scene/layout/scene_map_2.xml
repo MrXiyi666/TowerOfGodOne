@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 这是第一排 -->
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/map_1"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_1"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:text="魔法 传送阵"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/map_2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/img_2"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:text="裂牙荒原"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+    <!-- 上面是第一排 -->
+</LinearLayout>

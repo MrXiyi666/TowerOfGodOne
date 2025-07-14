@@ -20,7 +20,7 @@ public class EMoChangPao extends Goods_Object {
     }
     @Override
     public void fun(Context context){
-        Actor_Object.Dress = 1;
+        Actor_Object.Dress = 7;
         Fun_File.SaveDress(context);
         fun.Mess(context, "装备成功");
     }

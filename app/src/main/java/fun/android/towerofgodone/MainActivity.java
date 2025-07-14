@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.Scene.Scene_Map;
-import fun.android.towerofgodone.Scene.Scene_Title;
+import fun.android.towerofgodone.Scene.Title.Scene_Title;
+import fun.android.towerofgodone.Scene.War.Scene_War;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 if(fun.scene instanceof Scene_Title){
                     startActivity(intent);
+                }else if(fun.scene instanceof Scene_War){
+                    ((Scene_War) fun.scene).cancel_fun(MainActivity.this);
                 }else if(!(fun.scene instanceof Scene_Map)){
                     fun.scrollY = 0;
                     fun.view_transition.start(new Scene_Map(MainActivity.this));

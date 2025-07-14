@@ -24,7 +24,7 @@ import fun.android.towerofgodone.Window.Window_Mess;
 
 public class fun {
     public static RelativeLayout main_back, main_layout;
-    public static Scene_Base scene;
+    public static Scene_Base scene, Scene_War_Cancel;
     public static View_Transition view_transition;
     public static Enemy_Object enemy_object;
     public static SoundPool soundPool;
@@ -35,7 +35,8 @@ public class fun {
     public static int defense_hoist=0;
     public static int critical_hoist=0;
     public static int speed_hoist=0;
-    public static int Map_Index = 0;
+    public static int Map_Index = 0; // 魔兽场景ID
+    public static int Map_ID=1;      //地图ID
     public static int scrollY=0, scrollY_Map=0;
 
 

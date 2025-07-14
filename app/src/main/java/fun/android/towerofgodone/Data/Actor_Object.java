@@ -608,8 +608,10 @@ public class Actor_Object {
 
     public static String getDress(){
         if(Dress == 1){
+            return "幻影长袍";
+        } else if(Dress == 7){
             return "恶魔长袍";
-        }else{
+        } else{
             return "";
         }
     }

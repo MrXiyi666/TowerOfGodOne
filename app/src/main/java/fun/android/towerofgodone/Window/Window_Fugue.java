@@ -30,124 +30,76 @@ public class Window_Fugue {
         goods_img.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if(paused_type){
+                    return;
+                }
+                index++;
+                if(index>8){
+                    index=0;
+                }
                 switch(index){
-                    case 0:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
-                        index=1;
+                    case 0, 6, 5, 1:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/Many_Gold.png"));
                         break;
-                    case 1:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
-                        index=2;
+                    case 2, 9:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/XieXie.png"));
                         break;
-                    case 2:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/XieXie.png"));
-                        index=3;
+                    case 3, 7:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/ShengMingNengLiang.png"));
                         break;
-                    case 3:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ShengMingNengLiang.png"));
-                        index=4;
-                        break;
-                    case 4:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ZhuGuo.png"));
-                        index=5;
-                        break;
-                    case 5:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
-                        index=6;
-                        break;
-                    case 6:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
-                        index=7;
-                        break;
-                    case 7:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ShengMingNengLiang.png"));
-                        index=8;
-                        break;
-                    case 8:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ZhuGuo.png"));
-                        index=9;
-                        break;
-                    case 9:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/XieXie.png"));
-                        index=0;
+                    case 4, 8:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/ZhuGuo.png"));
                         break;
                 }
-                if(!paused_type){
-                    goods_img.postDelayed(this, 50);
-                }
-
-
+                goods_img.postDelayed(this, 50);
             }
         }, 50);
         AppCompatButton button_paused = view.findViewById(R.id.button_paused);
         button_paused.setOnClickListener(V->{
             paused_type=true;
-            int 数量=0;
+            int 数量;
             switch(index){
                 case 0:
                     数量 = fun.Random(1000);
+                    数量 = 数量 == 0 ? 1 : 数量;
                     shows.setText(数量+" 个金币");
                     Actor_Object.Gold = Actor_Object.Gold+数量;
                     Fun_File.SaveGold(context);
                     break;
-                case 1:
+                case 1, 6:
                     数量 = fun.Random(100);
+                    数量 = 数量 == 0 ? 1 : 数量;
                     shows.setText(数量+" 个金币");
                     Actor_Object.Gold = Actor_Object.Gold+数量;
                     Fun_File.SaveGold(context);
                     break;
-                case 2:
-                    shows.setText("谢谢参与");
-                    break;
-                case 3:
+                case 3, 7:
                     数量 = fun.Random(5);
-                    shows.setText("生命能量 小+" + 数量);
+                    数量 = 数量 == 0 ? 1 : 数量;
+                    shows.setText("生命能量 小 + " + 数量);
                     for(int i=0; i < 数量; i++){
                         fun.drug_list.add("生命能量 小");
                     }
                     Fun_File.SaveDrugList(context);
                     break;
-                case 4:
+                case 4, 8:
                     数量 = fun.Random(3);
+                    数量 = 数量 == 0 ? 1 : 数量;
                     for(int i=0; i < 数量; i++){
                         fun.drug_list.add("朱果");
                     }
-                    shows.setText("朱果+" + 数量);
+                    shows.setText("朱果 + " + 数量);
                     Fun_File.SaveDrugList(context);
                     break;
                 case 5:
                     数量 = fun.Random(50);
+                    数量 = 数量 == 0 ? 1 : 数量;
                     shows.setText(数量 + " 个金币");
                     Actor_Object.Gold = Actor_Object.Gold+数量;
                     Fun_File.SaveGold(context);
                     break;
-                case 6:
-                    数量 = fun.Random(100);
-                    shows.setText(数量+" 个金币");
-                    Actor_Object.Gold = Actor_Object.Gold+数量;
-                    Fun_File.SaveGold(context);
-                    break;
-                case 7:
-                    数量 = fun.Random(5);
-                    shows.setText("生命能量 小+" + 数量);
-                    for(int i=0; i < 数量; i++){
-                        fun.drug_list.add("生命能量 小");
-                    }
-                    Fun_File.SaveDrugList(context);
-                    break;
-                case 8:
-                    数量 = fun.Random(3);
-                    for(int i=0; i < 数量; i++){
-                        fun.drug_list.add("朱果");
-                    }
-                    shows.setText("朱果+" + 数量);
-                    Fun_File.SaveDrugList(context);
-                    break;
-                case 9:
-                    shows.setText("谢谢参与");
-                    break;
                 default:
-                    shows.setText("参数错误");
+                    shows.setText("谢谢参与");
             }
             button_paused.setVisibility(View.GONE);
         });
