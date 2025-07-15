@@ -10,7 +10,7 @@ import fun.android.towerofgodone.Fun.fun;
 public class XuanTieZhongJian extends Goods_Object {
     public XuanTieZhongJian(){
         this.name = "玄铁重剑";
-        this.shows = "基础攻击力+10";
+        this.shows = "万斤无锋 重剑无锋大巧不工 一剑断山河\n基础攻击力 + 10";
         this.price = 1000;
         this.type="arms";
         this.Attack=10;

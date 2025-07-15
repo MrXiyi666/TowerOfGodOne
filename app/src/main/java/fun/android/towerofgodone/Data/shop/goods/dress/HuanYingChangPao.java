@@ -9,7 +9,7 @@ import fun.android.towerofgodone.Fun.fun;
 public class HuanYingChangPao extends Goods_Object {
     public HuanYingChangPao(){
         this.name = "幻影长袍";
-        this.shows = "雾织星纹，影遁无形，夜行千里不染尘。\n基础防御力+10";
+        this.shows = "雾织星纹 影遁无形 夜行千里不染尘\n基础防御力 + 10";
         this.price = 1000;
         this.type="dress";
         this.Defense = 10;

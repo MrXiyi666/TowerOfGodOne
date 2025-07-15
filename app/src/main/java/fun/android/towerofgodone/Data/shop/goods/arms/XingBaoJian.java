@@ -10,7 +10,7 @@ import fun.android.towerofgodone.Fun.fun;
 public class XingBaoJian extends Goods_Object {
     public XingBaoJian(){
         this.name = "星爆剑";
-        this.shows = "凝聚星辰之力，剑光如银河炸裂，威力无穷，传说可斩断时空，唯勇者能驾驭\n基础攻击力+50\n角色攻击+30%";
+        this.shows = "凝聚星辰之力 剑光如银河炸裂 威力无穷 传说可斩断时空\n基础攻击力 + 50\n角色攻击 + 30%";
         this.price = 50000;
         this.type="arms";
         this.Attack = 50;

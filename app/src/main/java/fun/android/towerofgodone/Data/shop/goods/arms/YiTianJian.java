@@ -10,7 +10,7 @@ import fun.android.towerofgodone.Fun.fun;
 public class YiTianJian extends Goods_Object {
     public YiTianJian(){
         this.name = "倚天剑";
-        this.shows = "基础攻击力 + 20";
+        this.shows = "龙吟九霄 一剑断山河 万古神魔皆俯首\n基础攻击力 + 20";
         this.price = 2000;
         this.type="arms";
         this.Attack=20;

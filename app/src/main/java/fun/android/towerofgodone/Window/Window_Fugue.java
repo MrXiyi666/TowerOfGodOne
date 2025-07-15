@@ -34,21 +34,21 @@ public class Window_Fugue {
                     return;
                 }
                 index++;
-                if(index>8){
+                if(index>9){
                     index=0;
                 }
                 switch(index){
-                    case 0, 6, 5, 1:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/Many_Gold.png"));
+                    case 0, 6, 5, 1, 9:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/Many_Gold.png"));
                         break;
-                    case 2, 9:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/XieXie.png"));
+                    case 2:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ShengMingNengLiang.png"));
                         break;
                     case 3, 7:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/ShengMingNengLiang.png"));
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ShengMingNengLiang.png"));
                         break;
                     case 4, 8:
-                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "map/system/fugue/ZhuGuo.png"));
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ZhuGuo.png"));
                         break;
                 }
                 goods_img.postDelayed(this, 50);
@@ -65,6 +65,15 @@ public class Window_Fugue {
                     shows.setText(数量+" 个金币");
                     Actor_Object.Gold = Actor_Object.Gold+数量;
                     Fun_File.SaveGold(context);
+                    break;
+                case 2:
+                    数量 = fun.Random(2);
+                    数量 = 数量 == 0 ? 1 : 数量;
+                    shows.setText("生命能量 中 + " + 数量);
+                    for(int i=0; i < 数量; i++){
+                        fun.drug_list.add("生命能量 中");
+                    }
+                    Fun_File.SaveDrugList(context);
                     break;
                 case 1, 6:
                     数量 = fun.Random(100);
@@ -93,6 +102,13 @@ public class Window_Fugue {
                     break;
                 case 5:
                     数量 = fun.Random(50);
+                    数量 = 数量 == 0 ? 1 : 数量;
+                    shows.setText(数量 + " 个金币");
+                    Actor_Object.Gold = Actor_Object.Gold+数量;
+                    Fun_File.SaveGold(context);
+                    break;
+                case 9:
+                    数量 = fun.Random(10);
                     数量 = 数量 == 0 ? 1 : 数量;
                     shows.setText(数量 + " 个金币");
                     Actor_Object.Gold = Actor_Object.Gold+数量;

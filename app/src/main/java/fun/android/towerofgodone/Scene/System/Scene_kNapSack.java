@@ -1,6 +1,8 @@
 package fun.android.towerofgodone.Scene.System;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -206,6 +208,8 @@ public class Scene_kNapSack extends Scene_Base {
     @Override
     public void enable_scene(Context context) {
         super.enable_scene(context);
+        Bitmap back = fun.loadBitmapFromAssets(context, "knapsack/back_" + fun.Random(8) + ".png");
+        fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
     @Override

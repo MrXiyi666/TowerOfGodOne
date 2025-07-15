@@ -2,7 +2,6 @@ package fun.android.towerofgodone.Scene.War;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,16 +21,7 @@ import fun.android.towerofgodone.Data.shop.goods.dress.HuanYingChangPao;
 import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
-import fun.android.towerofgodone.Scene.Map_1.Scene_FeiLongGu;
-import fun.android.towerofgodone.Scene.Map_1.Scene_HuaHaiPan;
-import fun.android.towerofgodone.Scene.Map_1.Scene_HuiYuTianJing;
-import fun.android.towerofgodone.Scene.Map_1.Scene_MoWuSenLin;
-import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWaiTaoYuan;
-import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWanDaShan;
-import fun.android.towerofgodone.Scene.Map_1.Scene_YongYeMoYu;
-import fun.android.towerofgodone.Scene.Map_2.Scene_LieYaHuangYuan;
 import fun.android.towerofgodone.Scene.Scene_Base;
-import fun.android.towerofgodone.Scene.Scene_Map;
 import fun.android.towerofgodone.View.Blood_View;
 
 public class Scene_War extends Scene_Base {
@@ -43,9 +33,7 @@ public class Scene_War extends Scene_Base {
     private AppCompatButton button_cancel;
     private TextView settled_text, actor_xhp, hasten_text;
     private TextView enemy_xhp;
-
     private Blood_View enemy_hp, actor_hp;
-
     private Bitmap  enemy_war_img;
     private Bitmap actor_war_img;
     private int 攻击编号 = 0;
@@ -388,10 +376,9 @@ public class Scene_War extends Scene_Base {
 
     public void cancel_fun(Context context){
         fun.view_transition.start(fun.Scene_War_Cancel);
-        //清除药品增加效果
+        //清除属性增加效果
         fun.attack_hoist = 0;
         Fun_File.SaveAttackHoist(context);
-        //清除药品增加效果
         fun.defense_hoist = 0;
         Fun_File.SaveDefenseHoist(context);
         fun.critical_hoist = 0;
@@ -417,8 +404,5 @@ public class Scene_War extends Scene_Base {
         fun.ClearImageView(actor_img);
         fun.ClearImageView(actor_attack_img);
         fun.ClearImageView(logo_img);
-        fun.ClearBitmap(enemy_war_img);
-        fun.ClearBitmap(actor_war_img);
-        fun.ClearBitmap(back);
     }
 }
