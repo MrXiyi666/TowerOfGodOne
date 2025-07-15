@@ -34,7 +34,7 @@ public class Window_Fugue {
                     return;
                 }
                 index++;
-                if(index>9){
+                if(index>10){
                     index=0;
                 }
                 switch(index){
@@ -50,6 +50,8 @@ public class Window_Fugue {
                     case 4, 8:
                         goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/fugue/ZhuGuo.png"));
                         break;
+                    default:
+                        goods_img.setImageBitmap(fun.loadBitmapFromAssets(context, "system/XieXie.png"));
                 }
                 goods_img.postDelayed(this, 50);
             }

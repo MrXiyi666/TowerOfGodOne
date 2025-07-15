@@ -32,6 +32,7 @@ public class Window_HeriTaGe {
         Bitmap defense = fun.loadBitmapFromAssets(context, "system/heritage/defense.png");
         Bitmap critical = fun.loadBitmapFromAssets(context, "system/heritage/critical.png");
         Bitmap speed = fun.loadBitmapFromAssets(context, "system/heritage/speed.png");
+        Bitmap xiexie = fun.loadBitmapFromAssets(context, "system/XieXie.png");
 
         ImageView logo_img = view.findViewById(R.id.logo_img);
         TextView text_view = view.findViewById(R.id.text_view);
@@ -115,7 +116,7 @@ public class Window_HeriTaGe {
                     Fun_File.SaveSpeedHoist(context);
                     break;
                 default:
-                    logo_img.setImageBitmap(null);
+                    logo_img.setImageBitmap(xiexie);
                     text_view.setText("谢谢参与");
             }
         });

@@ -28,7 +28,7 @@
             <fun.android.towerofgodone.View.StrokeTextView
                 android:gravity="center_horizontal"
                 android:textColor="@color/white"
-                android:text="魔法 传送阵"
+                android:text="时空大裂缝"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:layout_width="match_parent"
