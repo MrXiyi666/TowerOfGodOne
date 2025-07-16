@@ -73,7 +73,7 @@ public class Window_Boundary {
                     up_ok_text.setVisibility(View.GONE);
                 }
             },2000);
-            scene_status.refresh(context);
+            scene_status.refresh();
             boundary_text.setText(Actor_Object.getBoundary());
             up_name = Actor_Object.getUPBoundary();
             if(up_name.isEmpty()){

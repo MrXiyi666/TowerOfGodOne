@@ -36,6 +36,37 @@
             android:layout_height="wrap_content"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/item_2"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <fun.android.towerofgodone.View.StrokeTextView
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:layout_marginEnd="5dp"
+            android:background="#80000000"
+            android:text="玄鳞天衣"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+        <fun.android.towerofgodone.View.StrokeTextView
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:layout_marginStart="5dp"
+            android:background="#80000000"
+            android:gravity="end"
+            android:text="2000金币"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/item_7"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"

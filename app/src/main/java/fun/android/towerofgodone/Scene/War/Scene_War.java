@@ -18,6 +18,7 @@ import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
 import fun.android.towerofgodone.Data.shop.goods.dress.HuanYingChangPao;
+import fun.android.towerofgodone.Data.shop.goods.dress.XuanLingTianYi;
 import fun.android.towerofgodone.Fun.Fun_File;
 import fun.android.towerofgodone.Fun.fun;
 import fun.android.towerofgodone.R;
@@ -41,9 +42,8 @@ public class Scene_War extends Scene_Base {
     private int enemy_hp_text=0;
     private int actor_hp_text=0;
     private int 伤害值 = 0;
-    private Bitmap back=null;
     private int handler_time = 1000;
-    private int 武器攻击力=0, 生命值加成=0, 防御力加成=0;
+    private int 攻击力加成=0, 生命值加成=0, 防御力加成=0, 暴击率加成, 速度加成;
     private int 攻击次数=0, 回合数=1;
     private int war_se, actor_se;
     private Runnable cancel_runnable;
@@ -119,27 +119,32 @@ public class Scene_War extends Scene_Base {
         }
         switch(Actor_Object.Arms){
             case 1:
-                武器攻击力 = new XuanTieZhongJian().Attack;
+                攻击力加成 = new XuanTieZhongJian().Attack;
                 break;
             case 2:
-                武器攻击力 = new YiTianJian().Attack;
+                攻击力加成 = new YiTianJian().Attack;
                 break;
             case 7:
-                武器攻击力 = (int)(new YingGuangJian().Attack + Actor_Object.getAttack() * new YingGuangJian().Attack_Ratio);
+                攻击力加成 = (int)(new YingGuangJian().Attack + Actor_Object.getAttack() * new YingGuangJian().Attack_Ratio);
                 break;
             case 8:
-                武器攻击力 = (int)(new ZhanHunDao().Attack + Actor_Object.getAttack() * new ZhanHunDao().Attack_Ratio);
+                攻击力加成 = (int)(new ZhanHunDao().Attack + Actor_Object.getAttack() * new ZhanHunDao().Attack_Ratio);
                 break;
             case 9:
-                武器攻击力 = (int)(new XingBaoJian().Attack + Actor_Object.getAttack() * new XingBaoJian().Attack_Ratio);
+                攻击力加成 = (int)(new XingBaoJian().Attack + Actor_Object.getAttack() * new XingBaoJian().Attack_Ratio);
                 break;
             case 10:
-                武器攻击力 = (int)(new PoHuaiMoJian().Attack + Actor_Object.getAttack() * new PoHuaiMoJian().Attack_Ratio);
+                攻击力加成 = (int)(new PoHuaiMoJian().Attack + Actor_Object.getAttack() * new PoHuaiMoJian().Attack_Ratio);
                 break;
         }
+
+        攻击力加成 = 攻击力加成 + fun.attack_hoist;
         switch(Actor_Object.Dress){
             case 1:
                 防御力加成 = new HuanYingChangPao().Defense;
+                break;
+            case 2:
+                防御力加成 = new XuanLingTianYi().Defense;
                 break;
             case 7:
                 生命值加成 = new EMoChangPao().HP;
@@ -149,6 +154,9 @@ public class Scene_War extends Scene_Base {
                 生命值加成=0;
                 防御力加成=0;
         }
+        防御力加成 = 防御力加成 + fun.defense_hoist;
+        暴击率加成 = 暴击率加成 + fun.critical_hoist;
+        速度加成 = 速度加成 + fun.speed_hoist;
     }
 
     public void 事件流程处理(Context context){
@@ -222,9 +230,9 @@ public class Scene_War extends Scene_Base {
         enemy_img.setAlpha(0.8f);
         actor_xhp.setVisibility(View.INVISIBLE);
         actor_attack_img.setImageBitmap(null);
-        int 我方攻击数值 = (Actor_Object.getAttack() + 武器攻击力 + fun.attack_hoist);
+        int 我方攻击数值 = (Actor_Object.getAttack() + 攻击力加成);
         String 暴击文本="";
-        if(fun.Random(101) <= Actor_Object.getCritical() + fun.critical_hoist){
+        if(fun.Random(101) <= Actor_Object.getCritical() + 暴击率加成){
             我方攻击数值 = 我方攻击数值 + 我方攻击数值;
             暴击文本 = 暴击文本 + "攻击 暴击";
         }
@@ -264,18 +272,18 @@ public class Scene_War extends Scene_Base {
         enemy_img.setAlpha(1f);
         enemy_xhp.setVisibility(View.INVISIBLE);
         enemy_attack_img.setImageBitmap(null);
-        int 我方攻击数值 = fun.enemy_object.Attack;
+        int 敌方攻击数值 = fun.enemy_object.Attack;
         String 暴击文本="";
         if(fun.Random(101) <= fun.enemy_object.Critical){
-            我方攻击数值 = 我方攻击数值 + 我方攻击数值;
+            敌方攻击数值 = 敌方攻击数值 + 敌方攻击数值;
             暴击文本 = 暴击文本 + "攻击 暴击";
         }
-        int 敌人防御数值 = (Actor_Object.getDefense() + 防御力加成 + fun.defense_hoist);
-        if(fun.Random(101) <= Actor_Object.Critical){
-            敌人防御数值 = 敌人防御数值 + 敌人防御数值;
+        int 我方防御数值 = (Actor_Object.getDefense() + 防御力加成);
+        if(fun.Random(101) <= Actor_Object.Critical + 暴击率加成){
+            我方防御数值 = 我方防御数值 + 我方防御数值;
             暴击文本 = 暴击文本 + "   防御 暴击";
         }
-        伤害值 = 我方攻击数值 - 敌人防御数值;
+        伤害值 = 敌方攻击数值 - 我方防御数值;
         if(伤害值 <= 0){
             伤害值 = 1;
         }

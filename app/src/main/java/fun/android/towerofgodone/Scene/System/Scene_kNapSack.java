@@ -15,6 +15,7 @@ import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
 import fun.android.towerofgodone.Data.shop.goods.dress.HuanYingChangPao;
+import fun.android.towerofgodone.Data.shop.goods.dress.XuanLingTianYi;
 import fun.android.towerofgodone.Data.shop.goods.drug.BaiNianZhuGuo;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanDa;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanXiao;
@@ -195,6 +196,10 @@ public class Scene_kNapSack extends Scene_Base {
             switch(name){
                 case "幻影长袍":
                     dress_item = new Dress_Item(context, new HuanYingChangPao());
+                    dress_linear.addView(dress_item.view);
+                    break;
+                case "玄鳞天衣":
+                    dress_item = new Dress_Item(context, new XuanLingTianYi());
                     dress_linear.addView(dress_item.view);
                     break;
                 case "恶魔长袍":

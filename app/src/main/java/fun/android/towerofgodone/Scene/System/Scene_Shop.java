@@ -16,6 +16,7 @@ import fun.android.towerofgodone.Data.shop.goods.arms.YingGuangJian;
 import fun.android.towerofgodone.Data.shop.goods.arms.ZhanHunDao;
 import fun.android.towerofgodone.Data.shop.goods.dress.EMoChangPao;
 import fun.android.towerofgodone.Data.shop.goods.dress.HuanYingChangPao;
+import fun.android.towerofgodone.Data.shop.goods.dress.XuanLingTianYi;
 import fun.android.towerofgodone.Data.shop.goods.drug.BaiNianZhuGuo;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanDa;
 import fun.android.towerofgodone.Data.shop.goods.drug.FengLingDanXiao;
@@ -156,6 +157,9 @@ public class Scene_Shop extends Scene_Base {
     public void dress_fun(Context context, StrokeTextView gold_text){
         view_dress.findViewById(R.id.item_1).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Dress(context, new HuanYingChangPao(), gold_text);
+        });
+        view_dress.findViewById(R.id.item_2).setOnClickListener(V->{
+            Window_Shop_Buy.Buy_Dress(context, new XuanLingTianYi(), gold_text);
         });
         view_dress.findViewById(R.id.item_7).setOnClickListener(V->{
             Window_Shop_Buy.Buy_Dress(context, new EMoChangPao(), gold_text);
