@@ -17,6 +17,7 @@ import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWaiTaoYuan;
 import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWanDaShan;
 import fun.android.towerofgodone.Scene.Map_1.Scene_YongYeMoYu;
 import fun.android.towerofgodone.Scene.Map_2.Scene_LieYaHuangYuan;
+import fun.android.towerofgodone.Scene.Map_2.Scene_YingGuangGu;
 import fun.android.towerofgodone.Scene.Status.Scene_Status;
 import fun.android.towerofgodone.Scene.System.Scene_Shop;
 import fun.android.towerofgodone.Scene.System.Scene_System;
@@ -141,9 +142,16 @@ public class Scene_Map extends Scene_Base{
         view_map.findViewById(R.id.img_2).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/map_2/lieyahuangyuan.png")
         ));
+        view_map.findViewById(R.id.img_3).setBackground(new BitmapDrawable(context.getResources(),
+                fun.loadBitmapFromAssets(context, "map/map_2/yingguanggu.png")
+        ));
         view_map.findViewById(R.id.map_2).setOnClickListener(V->{
             fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_LieYaHuangYuan(context));
+        });
+        view_map.findViewById(R.id.map_3).setOnClickListener(V->{
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_YingGuangGu(context));
         });
         fun.Map_ID = 2;
         linear.removeAllViews();
@@ -153,17 +161,16 @@ public class Scene_Map extends Scene_Base{
     @Override
     public void enable_scene(Context context) {
         super.enable_scene(context);
-        if(fun.Map_ID == 2){
-            Bitmap back = fun.loadBitmapFromAssets(context, "map/map_2/back_" + fun.Random(7) + ".png");
-            fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
-            return;
-        }
         if(fun.Map_ID == 1){
             Bitmap back = fun.loadBitmapFromAssets(context, "map/map_1/back_" + fun.Random(7) + ".png");
             fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
             return;
         }
-
+        if(fun.Map_ID == 2){
+            Bitmap back = fun.loadBitmapFromAssets(context, "map/map_2/back_" + fun.Random(7) + ".png");
+            fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
+            return;
+        }
 
     }
 

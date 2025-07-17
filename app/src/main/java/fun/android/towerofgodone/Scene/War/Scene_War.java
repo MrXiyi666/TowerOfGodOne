@@ -1,7 +1,9 @@
 package fun.android.towerofgodone.Scene.War;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -138,7 +140,7 @@ public class Scene_War extends Scene_Base {
                 break;
         }
 
-        攻击力加成 = 攻击力加成 + fun.attack_hoist;
+
         switch(Actor_Object.Dress){
             case 1:
                 防御力加成 = new HuanYingChangPao().Defense;
@@ -154,6 +156,7 @@ public class Scene_War extends Scene_Base {
                 生命值加成=0;
                 防御力加成=0;
         }
+        攻击力加成 = 攻击力加成 + fun.attack_hoist;
         防御力加成 = 防御力加成 + fun.defense_hoist;
         暴击率加成 = 暴击率加成 + fun.critical_hoist;
         速度加成 = 速度加成 + fun.speed_hoist;
@@ -192,6 +195,7 @@ public class Scene_War extends Scene_Base {
         actor_xhp.setVisibility(View.GONE);
         actor_img.setAlpha(1f);
         enemy_img.setAlpha(1f);
+        round_text.postDelayed(() -> round_text.setAlpha(0.3f),handler_time/2);
         事件流程=1;
         攻击次数=0;
         if(fun.enemy_object.Speed >= Actor_Object.getSpeed() + fun.speed_hoist){
@@ -205,7 +209,6 @@ public class Scene_War extends Scene_Base {
     public void 战斗过程事件(Runnable runnable){
         round_text.setAlpha(0.3f);
         round_text.setText("第 " + 回合数 + " 回");
-
         if(攻击编号==1){
             //我方攻击
             我方攻击事件();
@@ -222,6 +225,7 @@ public class Scene_War extends Scene_Base {
         }
         view.postDelayed(runnable, handler_time);
     }
+
     public void 我方攻击事件(){
         round_text.setAlpha(0.3f);
         round_text.setText("第 " + 回合数 + " 回");
@@ -231,24 +235,27 @@ public class Scene_War extends Scene_Base {
         actor_xhp.setVisibility(View.INVISIBLE);
         actor_attack_img.setImageBitmap(null);
         int 我方攻击数值 = (Actor_Object.getAttack() + 攻击力加成);
-        String 暴击文本="";
-        if(fun.Random(101) <= Actor_Object.getCritical() + 暴击率加成){
-            我方攻击数值 = 我方攻击数值 + 我方攻击数值;
-            暴击文本 = 暴击文本 + "攻击 暴击";
+        int 我方暴击率 = Actor_Object.getCritical() + 暴击率加成;
+        StringBuilder sb=new StringBuilder();
+        if(fun.Random(101) <= 我方暴击率){
+            我方攻击数值 = (int) (我方攻击数值 + 我方攻击数值 * (我方暴击率 / 100.0));
+
+            sb.append("攻击 暴击");
         }
         int 敌人防御数值 = fun.enemy_object.Defense;
         if(fun.Random(101) <= fun.enemy_object.Critical){
-            敌人防御数值 = 敌人防御数值 + 敌人防御数值;
-            暴击文本 = 暴击文本 + "   防御 暴击";
+            敌人防御数值 = (int) (敌人防御数值 + 敌人防御数值 * (fun.enemy_object.Critical / 100.0));
+            sb.append("   防御 暴击");
         }
         伤害值 = 我方攻击数值 - 敌人防御数值;
         if(伤害值 <= 0){
             伤害值 = 1;
         }
-        if(!暴击文本.isEmpty()){
+        if(!sb.toString().isEmpty()){
             round_text.setVisibility(View.VISIBLE);
-            round_text.setText(暴击文本);
+            round_text.setText(sb);
             round_text.setAlpha(1f);
+            round_text.postDelayed(() -> round_text.setAlpha(0.6f),handler_time/2);
         }
         enemy_hp_text = enemy_hp_text - 伤害值;
         if(enemy_hp_text<=0){
@@ -273,26 +280,27 @@ public class Scene_War extends Scene_Base {
         enemy_xhp.setVisibility(View.INVISIBLE);
         enemy_attack_img.setImageBitmap(null);
         int 敌方攻击数值 = fun.enemy_object.Attack;
-        String 暴击文本="";
+        StringBuilder sb=new StringBuilder();
         if(fun.Random(101) <= fun.enemy_object.Critical){
-            敌方攻击数值 = 敌方攻击数值 + 敌方攻击数值;
-            暴击文本 = 暴击文本 + "攻击 暴击";
+            敌方攻击数值 = (int) (敌方攻击数值 + 敌方攻击数值 * (fun.enemy_object.Critical / 100.0));
+            sb.append("攻击 暴击");
         }
         int 我方防御数值 = (Actor_Object.getDefense() + 防御力加成);
-        if(fun.Random(101) <= Actor_Object.Critical + 暴击率加成){
-            我方防御数值 = 我方防御数值 + 我方防御数值;
-            暴击文本 = 暴击文本 + "   防御 暴击";
+        int 我方暴击率 = Actor_Object.getCritical() + 暴击率加成;
+        if(fun.Random(101) <= 我方暴击率){
+            我方防御数值 = (int) (我方防御数值 + 我方防御数值 * (我方暴击率 / 100.0));
+            sb.append("   防御 暴击");
         }
         伤害值 = 敌方攻击数值 - 我方防御数值;
         if(伤害值 <= 0){
             伤害值 = 1;
         }
-        if(!暴击文本.isEmpty()){
+        if(!sb.toString().isEmpty()){
             round_text.setVisibility(View.VISIBLE);
-            round_text.setText(暴击文本);
+            round_text.setText(sb);
             round_text.setAlpha(1f);
+            round_text.postDelayed(() -> round_text.setAlpha(0.6f),handler_time/2);
         }
-
         actor_hp_text = actor_hp_text - 伤害值;
         if(actor_hp_text<=0){
             actor_hp_text=0;
