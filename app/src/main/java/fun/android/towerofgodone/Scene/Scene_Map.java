@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import fun.android.towerofgodone.Fun.fun;
@@ -65,6 +67,7 @@ public class Scene_Map extends Scene_Base{
 
     public void Create_Map_1(Context context){
         view_map = LayoutInflater.from(context).inflate(R.layout.scene_map_1, null);
+        ImageView shikong = view_map.findViewById(R.id.img_8);
         view_map.findViewById(R.id.map_1).setOnClickListener(V->{
             fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_MoWuSenLin(context));
@@ -93,7 +96,7 @@ public class Scene_Map extends Scene_Base{
             fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_YongYeMoYu(context));
         });
-        view_map.findViewById(R.id.map_8).setOnClickListener(V->{
+        shikong.setOnClickListener(V->{
             fun.Map_ID = 2;
             fun.scrollY_Map=0;
             fun.view_transition.start(new Scene_Map(context));
@@ -120,9 +123,13 @@ public class Scene_Map extends Scene_Base{
         view_map.findViewById(R.id.img_7).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/map_1/yongyemoyu.png")
         ));
-        view_map.findViewById(R.id.img_8).setBackground(new BitmapDrawable(context.getResources(),
-                fun.loadBitmapFromAssets(context, "map/chuansongzheng.png")
-        ));
+        shikong.setImageBitmap(fun.loadBitmapFromAssets(context, "map/shikongdaliefeng.png"));
+        shikong.post(()->{
+            ViewGroup.LayoutParams lp = shikong.getLayoutParams();
+            lp.height = shikong.getWidth();
+            shikong.setLayoutParams(lp);
+        });
+
         fun.Map_ID = 1;
         linear.removeAllViews();
         linear.addView(view_map);
@@ -131,14 +138,18 @@ public class Scene_Map extends Scene_Base{
 
     public void Create_Map_2(Context context){
         view_map = LayoutInflater.from(context).inflate(R.layout.scene_map_2, null);
-        view_map.findViewById(R.id.map_1).setOnClickListener(V->{
+        ImageView shikong1 = view_map.findViewById(R.id.img_1);
+        shikong1.post(()->{
+            ViewGroup.LayoutParams lp = shikong1.getLayoutParams();
+            lp.height = shikong1.getWidth();
+            shikong1.setLayoutParams(lp);
+        });
+        shikong1.setImageBitmap(fun.loadBitmapFromAssets(context, "map/shikongdaliefeng.png"));
+        shikong1.setOnClickListener(V->{
             fun.Map_ID = 1;
             fun.scrollY_Map=0;
             fun.view_transition.start(new Scene_Map(context));
         });
-        view_map.findViewById(R.id.img_1).setBackground(new BitmapDrawable(context.getResources(),
-                fun.loadBitmapFromAssets(context, "map/chuansongzheng.png")
-        ));
         view_map.findViewById(R.id.img_2).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/map_2/lieyahuangyuan.png")
         ));

@@ -24,7 +24,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -47,7 +47,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -79,7 +79,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -102,7 +102,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -134,7 +134,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -157,7 +157,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -189,7 +189,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="230dp"/>
             <fun.android.towerofgodone.View.StrokeTextView
                 android:gravity="center_horizontal"
                 android:textColor="@color/white"
@@ -199,21 +199,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/map_8"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/img_8"
                 android:adjustViewBounds="true"
-                android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"/>
+                android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
+                android:layout_alignParentBottom="true"
+                android:id="@+id/text_8"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:text="时空大裂缝"
@@ -221,7 +224,7 @@
                 android:autoSizeTextType="uniform"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
     <!-- 上面是第四排 -->
 </LinearLayout>
