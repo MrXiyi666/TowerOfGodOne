@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +38,7 @@ public class Window_HeriTaGe {
         ImageView logo_img = view.findViewById(R.id.logo_img);
         TextView text_view = view.findViewById(R.id.text_view);
         AppCompatButton button_ok = view.findViewById(R.id.button_ok);
-        logo_img.setImageBitmap(attack);
-        logo_img.post(new Runnable() {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 if(bool_fun){
@@ -76,11 +76,13 @@ public class Window_HeriTaGe {
                     return;
                 }
             }
-        });
-
+        };
+        logo_img.post(runnable);
         button_ok.setOnClickListener(V->{
             button_ok.setVisibility(View.GONE);
             bool_fun = true;
+            logo_img.setImageBitmap(null);
+            index = fun.Random(4);
             int data;
             switch (index) {
                 case 0:
@@ -119,6 +121,16 @@ public class Window_HeriTaGe {
                     logo_img.setImageBitmap(xiexie);
                     text_view.setText("谢谢参与");
             }
+        });
+        dialog.setOnDismissListener(d -> {
+            logo_img.removeCallbacks(runnable);
+            logo_img.setImageBitmap(null);
+            fun.ClearBitmap(attack);
+            fun.ClearBitmap(defense);
+            fun.ClearBitmap(critical);
+            fun.ClearBitmap(speed);
+            fun.ClearBitmap(xiexie);
+            Log.w("释放", "释放了");
         });
         dialog.setView(view);
         dialog.setCancelable(true);

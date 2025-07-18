@@ -40,6 +40,8 @@ public class fun {
     public static int scrollY=0, scrollY_Map=0;
 
 
+    private static final Random random = new Random(); // 只创建一次
+
     public static void Mess(Context context, String text){
         //Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
         new Window_Mess(context, text);
@@ -87,7 +89,6 @@ public class fun {
         }
     }
     public static int Random( int max){
-        Random random = new Random();
         return random.nextInt(max+1);
     }
     public static void play_SE(int id){
