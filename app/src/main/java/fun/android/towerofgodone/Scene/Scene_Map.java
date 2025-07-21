@@ -19,6 +19,7 @@ import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWaiTaoYuan;
 import fun.android.towerofgodone.Scene.Map_1.Scene_ShiWanDaShan;
 import fun.android.towerofgodone.Scene.Map_1.Scene_YongYeMoYu;
 import fun.android.towerofgodone.Scene.Map_2.Scene_LieYaHuangYuan;
+import fun.android.towerofgodone.Scene.Map_2.Scene_WangZheZhiYu;
 import fun.android.towerofgodone.Scene.Map_2.Scene_YingGuangGu;
 import fun.android.towerofgodone.Scene.Status.Scene_Status;
 import fun.android.towerofgodone.Scene.System.Scene_Shop;
@@ -156,6 +157,9 @@ public class Scene_Map extends Scene_Base{
         view_map.findViewById(R.id.img_3).setBackground(new BitmapDrawable(context.getResources(),
                 fun.loadBitmapFromAssets(context, "map/map_2/yingguanggu.png")
         ));
+        view_map.findViewById(R.id.img_4).setBackground(new BitmapDrawable(context.getResources(),
+                fun.loadBitmapFromAssets(context, "map/map_2/wangzhezhiyu.png")
+        ));
         view_map.findViewById(R.id.map_2).setOnClickListener(V->{
             fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_LieYaHuangYuan(context));
@@ -163,6 +167,10 @@ public class Scene_Map extends Scene_Base{
         view_map.findViewById(R.id.map_3).setOnClickListener(V->{
             fun.scrollY_Map = scrollView.getScrollY();
             fun.view_transition.start(new Scene_YingGuangGu(context));
+        });
+        view_map.findViewById(R.id.map_4).setOnClickListener(V->{
+            fun.scrollY_Map = scrollView.getScrollY();
+            fun.view_transition.start(new Scene_WangZheZhiYu(context));
         });
         fun.Map_ID = 2;
         linear.removeAllViews();

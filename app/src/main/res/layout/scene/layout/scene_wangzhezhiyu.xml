@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
     <ScrollView
         android:id="@+id/scrollView"
         android:scrollbars="none"
@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 幻彩幽蝶"
+                android:text="初阶亡灵 骷髅兵"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 碧鳞蛇皇"
+                android:text="初阶亡灵 僵尸"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 玄甲蜗皇"
+                android:text="中阶亡灵 幽灵"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 裂空海妖"
+                android:text="中阶亡灵 骨弓手"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 海龟妖"
+                android:text="高阶亡灵 巫妖学徒"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 树妖"
+                android:text="高阶亡灵 死亡骑士"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 毒蜂王"
+                android:text="超阶亡灵 骨龙"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -154,7 +154,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 血牙狂猿"
+                android:text="超阶亡灵 怨灵领主"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -173,7 +173,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶魔兽 翠羽鸟"
+                android:text="圣阶亡灵 巫妖领主"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/enemy_10"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:text="圣阶亡灵 死亡之神 化身"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
