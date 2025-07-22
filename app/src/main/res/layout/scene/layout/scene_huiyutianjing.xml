@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶天使 曦聆"
+                android:text="初阶天使 晨光侍者·曦"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶天使 莉莉丝"
+                android:text="初阶天使 星砂巡卫·洛"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶天使 灵羽"
+                android:text="中阶天使 焰辉战使·赫萝"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -78,7 +78,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="圣阶天使 星漪"
+                android:text="中阶天使 霜歌咏者·埃拉"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="圣阶天使 琉曦·艾兰缇娅"
+                android:text="高阶天使 雷罚统帅·卡西欧"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -116,7 +116,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="圣阶天使 曦璃·塞拉菲尔"
+                android:text="高阶天使 圣辉祭司·艾蕾娜"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="圣阶天使 霁羽·弥伽"
+                android:text="超阶天使  破晓审判·赛勒"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -154,7 +154,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="圣阶天使 炽曜·芙蕾妮雅"
+                android:text="超阶天使 永夜守望·诺瓦"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/enemy_9"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:text="圣阶天使 苍穹御座·弥赛尔"
+                android:textSize="20sp"
+                android:autoSizeTextType="uniform"
+                android:textColor="@color/white"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <View
+                android:background="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+            <ImageView
+                android:padding="10dp"
+                android:id="@+id/enemy_10"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <fun.android.towerofgodone.View.StrokeTextView
+                android:text="圣阶天使 终焉福音·伊瑟拉"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
