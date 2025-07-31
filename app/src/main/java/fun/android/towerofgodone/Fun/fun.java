@@ -120,19 +120,15 @@ public class fun {
         int outMonth = toInt(outTime[1]);
         int outDay = toInt(outTime[2]);
         int outHour = toInt(outTime[3]);
-        Log.w("时间", "旧的时间" + outYear + " " + outMonth + " " + outDay + " " + outHour);
         //当前时间
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1; // 注意：月份从 0 开始，所以要加 1
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        Log.w("时间", "当前时间" + year + " " + month + " " + day + " " + hour);
         if(year != outYear || month != outMonth || day != outDay || hour != outHour){
-            Log.w("时间", "true");
             return true;
         }
-        Log.w("时间", "false");
         return false;
     }
     //一小时剩余多少分钟
@@ -155,7 +151,6 @@ public class fun {
     public static void ClearBitmap(Bitmap bitmap){
         if (bitmap != null && !bitmap.isRecycled()) {
             bitmap.recycle();
-            bitmap = null;
         }
     }
 }
