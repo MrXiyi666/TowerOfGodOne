@@ -15,13 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_1"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶兽人 虎头半兽人"
+                android:text="初阶兽人 牙獠"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -34,13 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_2"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶兽人 牛头人战士"
+                android:text="初阶兽人 石奴"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -53,13 +53,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_3"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶兽人 灵狐仙子"
+                android:text="中阶兽人 狮卫"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -72,13 +72,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_4"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶兽人 象龟人"
+                android:text="中阶兽人 骨爪猎手"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -91,13 +91,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_5"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="高阶兽人 狮力勇士"
+                android:text="高阶兽人 黑曜督军"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -110,13 +110,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_6"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶兽人 龙人战士"
+                android:text="高阶兽人 月影妖姬"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -129,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_7"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
@@ -148,13 +148,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_8"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶兽人 狐仙"
+                android:text="超阶兽人 狂岩巨兽"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
@@ -167,13 +167,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp"/>
             <ImageView
-                android:padding="10dp"
+                android:layout_margin="10dp"
                 android:id="@+id/enemy_9"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <fun.android.towerofgodone.View.StrokeTextView
-                android:text="超阶兽人 美杜莎瑟西"
+                android:text="圣阶兽人 战尊"
                 android:textSize="20sp"
                 android:autoSizeTextType="uniform"
                 android:textColor="@color/white"
