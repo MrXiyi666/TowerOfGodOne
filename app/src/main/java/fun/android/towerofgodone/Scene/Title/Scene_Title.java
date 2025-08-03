@@ -29,7 +29,7 @@ public class Scene_Title extends Scene_Base {
     @Override
     public void enable_scene(Context context) {
         super.enable_scene(context);
-        Bitmap back = fun.loadBitmapFromAssets(context, "title/back_"+ fun.Random(2)+".png");
+        Bitmap back = fun.loadBitmapFromAssets(context, "title/back_"+ fun.Random(9)+".png");
         fun.main_back.setBackground(new BitmapDrawable(context.getResources(), back));
     }
 
